@@ -3,30 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory, stochastic processes, scaling limits and random walks."
-    />
+    <meta name="description" content="Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory." />
     <meta name="author" content="Eduardo Sampaio Pimenta" />
     <meta name="theme-color" content="#123b3a" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Eduardo Sampaio Pimenta — Mathematics" />
-    <meta
-      property="og:description"
-      content="Research in probability theory, stochastic processes, scaling limits and random walks."
-    />
+    <meta property="og:description" content="Research in probability theory, stochastic processes, scaling limits and random walks." />
     <title>Eduardo Sampaio Pimenta — Mathematics</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
 
-  <body>
+  <body
+    data-page="home"
+    data-title-en="Eduardo Sampaio Pimenta — Mathematics"
+    data-title-pt="Eduardo Sampaio Pimenta — Matemática"
+    data-description-en="Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory."
+    data-description-pt="Site acadêmico de Eduardo Sampaio Pimenta, matemático e pesquisador em teoria da probabilidade."
+  >
     <a class="skip-link" href="#main-content" data-en="Skip to content" data-pt="Ir para o conteúdo">Skip to content</a>
 
-    <header class="site-header" id="top">
+    <header class="site-header">
       <div class="shell header-inner">
-        <a class="brand" href="#top" aria-label="Eduardo Sampaio Pimenta — home">
+        <a class="brand" href="index.html" aria-label="Eduardo Sampaio Pimenta — home">
           <span class="brand-mark" aria-hidden="true">EP</span>
           <span class="brand-name">Eduardo Pimenta</span>
         </a>
@@ -37,17 +37,16 @@
         </button>
 
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a href="#about" data-en="About" data-pt="Sobre">About</a>
-          <a href="#research" data-en="Research" data-pt="Pesquisa">Research</a>
-          <a href="#publications" data-en="Publications" data-pt="Publicações">Publications</a>
-          <a href="#cv" data-en="CV" data-pt="Currículo">CV</a>
-          <a href="#contact" data-en="Contact" data-pt="Contato">Contact</a>
+          <a href="sobre.html" data-page-link="about" data-en="About" data-pt="Sobre">About</a>
+          <a href="pesquisa.html" data-page-link="research" data-en="Research" data-pt="Pesquisa">Research</a>
+          <a href="trabalhos.html" data-page-link="works" data-en="Works" data-pt="Trabalhos">Works</a>
+          <a href="simulacoes.html" data-page-link="simulations" data-en="Simulations" data-pt="Simulações">Simulations</a>
+          <a href="curriculo.html" data-page-link="cv" data-en="CV" data-pt="Currículo">CV</a>
+          <a href="contato.html" data-page-link="contact" data-en="Contact" data-pt="Contato">Contact</a>
         </nav>
 
         <button class="language-toggle" type="button" aria-label="Mudar para português">
-          <span class="language-current">EN</span>
-          <span aria-hidden="true">/</span>
-          <span class="language-target">PT</span>
+          <span class="language-current">EN</span><span aria-hidden="true">/</span><span class="language-target">PT</span>
         </button>
       </div>
     </header>
@@ -55,36 +54,30 @@
     <main id="main-content">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
-          <p class="eyebrow" data-en="Mathematician · Probability Theory" data-pt="Matemático · Teoria da Probabilidade">
-            Mathematician · Probability Theory
-          </p>
+          <p class="eyebrow" data-en="Mathematician · Probability Theory" data-pt="Matemático · Teoria da Probabilidade">Mathematician · Probability Theory</p>
           <h1 id="hero-title">Eduardo<br />Sampaio Pimenta</h1>
           <p
             class="hero-lead"
             data-en="I study stochastic processes through scaling limits, random walks and their connections with Brownian motion."
             data-pt="Estudo processos estocásticos por meio de limites de escala, passeios aleatórios e suas conexões com o movimento Browniano."
-          >
-            I study stochastic processes through scaling limits, random walks and their connections with Brownian motion.
-          </p>
-
+          >I study stochastic processes through scaling limits, random walks and their connections with Brownian motion.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#research">
-              <span data-en="Explore my research" data-pt="Conheça minha pesquisa">Explore my research</span>
-              <span aria-hidden="true">↘</span>
+            <a class="button button-primary" href="pesquisa.html">
+              <span data-en="Explore my research" data-pt="Conheça minha pesquisa">Explore my research</span><span aria-hidden="true">→</span>
             </a>
             <a class="button button-text" href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">
-              <span data-en="Lattes CV" data-pt="Currículo Lattes">Lattes CV</span>
-              <span aria-hidden="true">↗</span>
+              <span data-en="Lattes CV" data-pt="Currículo Lattes">Lattes CV</span><span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Abstract mathematical illustration">
+        <div class="hero-visual reveal" aria-label="Abstract mathematical composition">
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
           <div class="orbit orbit-three"></div>
-          <div class="portrait-frame">
-            <span class="portrait-monogram" aria-hidden="true">EP</span>
+          <div class="portrait-frame" role="img" aria-label="Eduardo Sampaio Pimenta">
+            <img class="portrait-slide active" src="assets/eduardo-pimenta-retrato.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="high" />
+            <img class="portrait-slide" src="assets/eduardo-pimenta-palestra.jpg" alt="" aria-hidden="true" decoding="async" />
           </div>
           <span class="math-note math-note-a" aria-hidden="true">X<sub>n</sub> ⇒ X</span>
           <span class="math-note math-note-b" aria-hidden="true">P<sub>x</sub>(τ &lt; ∞)</span>
@@ -92,262 +85,59 @@
         </div>
 
         <div class="hero-facts reveal" aria-label="Academic highlights">
-          <div>
-            <span class="fact-number">2025</span>
-            <span class="fact-label" data-en="PhD in Mathematics · UFBA" data-pt="Doutorado em Matemática · UFBA">PhD in Mathematics · UFBA</span>
-          </div>
-          <div>
-            <span class="fact-number">2025–26</span>
-            <span class="fact-label" data-en="Postdoctoral research · Augsburg" data-pt="Pesquisa de pós-doutorado · Augsburg">Postdoctoral research · Augsburg</span>
-          </div>
-          <div>
-            <span class="fact-number">math.PR</span>
-            <span class="fact-label" data-en="Probability on arXiv" data-pt="Probabilidade no arXiv">Probability on arXiv</span>
-          </div>
+          <div><span class="fact-number">2025</span><span class="fact-label" data-en="PhD in Mathematics · UFBA" data-pt="Doutorado em Matemática · UFBA">PhD in Mathematics · UFBA</span></div>
+          <div><span class="fact-number">2025–26</span><span class="fact-label" data-en="Postdoctoral research · Augsburg" data-pt="Pesquisa de pós-doutorado · Augsburg">Postdoctoral research · Augsburg</span></div>
+          <div><span class="fact-number">math.PR</span><span class="fact-label" data-en="Probability on arXiv" data-pt="Probabilidade no arXiv">Probability on arXiv</span></div>
         </div>
       </section>
 
-      <section class="section shell" id="about" aria-labelledby="about-title">
-        <div class="section-heading reveal">
-          <p class="section-index">01</p>
-          <h2 id="about-title" data-en="About" data-pt="Sobre">About</h2>
-        </div>
-
-        <div class="about-grid">
-          <p
-            class="about-intro reveal"
-            data-en="I am a Brazilian mathematician working in probability theory, with an emphasis on stochastic processes and asymptotic phenomena."
-            data-pt="Sou um matemático brasileiro que trabalha em teoria da probabilidade, com ênfase em processos estocásticos e fenômenos assintóticos."
-          >
-            I am a Brazilian mathematician working in probability theory, with an emphasis on stochastic processes and asymptotic phenomena.
-          </p>
-          <div class="about-body reveal">
-            <p
-              data-en="I received my PhD in Mathematics from the Federal University of Bahia (UFBA) in 2025. My doctoral work investigates convergence of Feller processes through their generators, with applications to functional central limit theorems for boundary random walks and Brownian-type processes."
-              data-pt="Concluí o doutorado em Matemática na Universidade Federal da Bahia (UFBA) em 2025. Minha pesquisa de doutorado investiga a convergência de processos de Feller por meio de seus geradores, com aplicações a teoremas centrais do limite funcionais para passeios aleatórios com fronteira e processos do tipo Browniano."
-            >
-              I received my PhD in Mathematics from the Federal University of Bahia (UFBA) in 2025. My doctoral work investigates convergence of Feller processes through their generators, with applications to functional central limit theorems for boundary random walks and Brownian-type processes.
-            </p>
-            <p
-              data-en="Most recently, I carried out postdoctoral research at the University of Augsburg, where I also worked on dynamic percolation and evasion problems involving Brownian regions."
-              data-pt="Mais recentemente, realizei pesquisa de pós-doutorado na Universidade de Augsburg, onde também trabalhei com percolação dinâmica e problemas de evasão envolvendo regiões Brownianas."
-            >
-              Most recently, I carried out postdoctoral research at the University of Augsburg, where I also worked on dynamic percolation and evasion problems involving Brownian regions.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-tinted" id="research" aria-labelledby="research-title">
+      <section class="home-directory section-tinted" aria-labelledby="directory-title">
         <div class="shell">
-          <div class="section-heading reveal">
-            <p class="section-index">02</p>
-            <h2 id="research-title" data-en="Research" data-pt="Pesquisa">Research</h2>
+          <div class="section-heading compact-heading reveal">
+            <p class="section-index">01</p>
+            <h2 id="directory-title" data-en="Academic profile" data-pt="Perfil acadêmico">Academic profile</h2>
           </div>
-
-          <div class="research-intro reveal">
-            <p
-              data-en="My research sits at the interface of discrete and continuous probability: I study how microscopic random systems produce macroscopic stochastic behavior."
-              data-pt="Minha pesquisa está na interface entre a probabilidade discreta e a contínua: estudo como sistemas aleatórios microscópicos produzem comportamentos estocásticos macroscópicos."
-            >
-              My research sits at the interface of discrete and continuous probability: I study how microscopic random systems produce macroscopic stochastic behavior.
-            </p>
-          </div>
-
-          <div class="research-grid">
-            <article class="research-card reveal">
+          <div class="page-link-grid">
+            <a class="page-link-card reveal" href="sobre.html">
               <span class="card-number">A</span>
-              <h3 data-en="Scaling limits" data-pt="Limites de escala">Scaling limits</h3>
-              <p
-                data-en="Weak convergence of discrete stochastic models to continuous processes, with quantitative estimates whenever possible."
-                data-pt="Convergência fraca de modelos estocásticos discretos para processos contínuos, com estimativas quantitativas sempre que possível."
-              >
-                Weak convergence of discrete stochastic models to continuous processes, with quantitative estimates whenever possible.
-              </p>
-            </article>
-
-            <article class="research-card reveal">
+              <h3 data-en="About" data-pt="Sobre">About</h3>
+              <p data-en="Background, academic interests and recent research experience." data-pt="Formação, interesses acadêmicos e experiência recente de pesquisa.">Background, academic interests and recent research experience.</p>
+              <span class="card-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="page-link-card reveal" href="pesquisa.html">
               <span class="card-number">B</span>
-              <h3 data-en="Boundary random walks" data-pt="Passeios com fronteira">Boundary random walks</h3>
-              <p
-                data-en="Random walks on the half-line and the role of boundary mechanisms in producing different Brownian-type limits."
-                data-pt="Passeios aleatórios na semirreta e o papel dos mecanismos de fronteira na produção de diferentes limites do tipo Browniano."
-              >
-                Random walks on the half-line and the role of boundary mechanisms in producing different Brownian-type limits.
-              </p>
-            </article>
-
-            <article class="research-card reveal">
+              <h3 data-en="Research" data-pt="Pesquisa">Research</h3>
+              <p data-en="Scaling limits, boundary random walks, Feller processes and dynamic percolation." data-pt="Limites de escala, passeios com fronteira, processos de Feller e percolação dinâmica.">Scaling limits, boundary random walks, Feller processes and dynamic percolation.</p>
+              <span class="card-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="page-link-card reveal" href="trabalhos.html">
               <span class="card-number">C</span>
-              <h3 data-en="Feller processes" data-pt="Processos de Feller">Feller processes</h3>
-              <p
-                data-en="Generator-based methods for convergence in distribution, including Trotter–Kato type results."
-                data-pt="Métodos baseados em geradores para convergência em distribuição, incluindo resultados do tipo Trotter–Kato."
-              >
-                Generator-based methods for convergence in distribution, including Trotter–Kato type results.
-              </p>
-            </article>
-
-            <article class="research-card reveal">
+              <h3 data-en="Works" data-pt="Trabalhos">Works</h3>
+              <p data-en="Five highlights and a complete list of papers, theses and talks." data-pt="Cinco destaques e a lista completa de artigos, teses e apresentações.">Five highlights and a complete list of papers, theses and talks.</p>
+              <span class="card-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="page-link-card reveal" href="simulacoes.html">
               <span class="card-number">D</span>
-              <h3 data-en="Dynamic percolation" data-pt="Percolação dinâmica">Dynamic percolation</h3>
-              <p
-                data-en="Evasion and connectivity questions in evolving random environments, including Brownian regions."
-                data-pt="Questões de evasão e conectividade em ambientes aleatórios que evoluem no tempo, incluindo regiões Brownianas."
-              >
-                Evasion and connectivity questions in evolving random environments, including Brownian regions.
-              </p>
-            </article>
+              <h3 data-en="Simulations" data-pt="Simulações">Simulations</h3>
+              <p data-en="Open-source code and numerical experiments supporting the research." data-pt="Códigos abertos e experimentos numéricos que apoiam a pesquisa.">Open-source code and numerical experiments supporting the research.</p>
+              <span class="card-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="section shell" id="publications" aria-labelledby="publications-title">
-        <div class="section-heading reveal">
-          <p class="section-index">03</p>
-          <h2 id="publications-title" data-en="Selected work" data-pt="Trabalhos selecionados">Selected work</h2>
+      <section class="home-feature shell" aria-labelledby="feature-title">
+        <div class="feature-label reveal">
+          <p class="section-index">02</p>
+          <p data-en="Selected work" data-pt="Trabalho selecionado">Selected work</p>
         </div>
-
-        <div class="publication-list">
-          <article class="publication reveal">
-            <p class="publication-year">2024</p>
-            <div>
-              <p class="publication-type" data-en="Preprint · Probability" data-pt="Preprint · Probabilidade">Preprint · Probability</p>
-              <h3>A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</h3>
-              <p class="publication-authors">Dirk Erhard, Tertuliano Franco, Milton Jara &amp; Eduardo Pimenta</p>
-              <p
-                class="publication-abstract"
-                data-en="A Trotter–Kato type approach to convergence of Feller processes, with functional central limit theorems for random walks with boundary conditions."
-                data-pt="Uma abordagem do tipo Trotter–Kato para a convergência de processos de Feller, com teoremas centrais do limite funcionais para passeios aleatórios com condições de fronteira."
-              >
-                A Trotter–Kato type approach to convergence of Feller processes, with functional central limit theorems for random walks with boundary conditions.
-              </p>
-            </div>
-            <a class="publication-link" href="https://arxiv.org/abs/2408.06830" target="_blank" rel="noreferrer" aria-label="Open preprint on arXiv">
-              arXiv <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-
-          <article class="publication reveal">
-            <p class="publication-year">2025</p>
-            <div>
-              <p class="publication-type" data-en="Doctoral thesis · UFBA" data-pt="Tese de doutorado · UFBA">Doctoral thesis · UFBA</p>
-              <h3
-                data-en="Functional Central Limit Theorem and Berry–Esseen Estimates for Non-Homogeneous Random Walks"
-                data-pt="Teorema Central do Limite Funcional e Estimativas de Berry–Esseen para Passeios Aleatórios Não-Homogêneos"
-              >
-                Functional Central Limit Theorem and Berry–Esseen Estimates for Non-Homogeneous Random Walks
-              </h3>
-              <p class="publication-authors" data-en="Advisor: Tertuliano Franco · Co-advisor: Dirk Erhard" data-pt="Orientador: Tertuliano Franco · Coorientador: Dirk Erhard">
-                Advisor: Tertuliano Franco · Co-advisor: Dirk Erhard
-              </p>
-              <p
-                class="publication-abstract"
-                data-en="Convergence of Feller processes through generators, quantitative rates in the vague topology, and applications to Brownian-type scaling limits."
-                data-pt="Convergência de processos de Feller por meio de geradores, taxas quantitativas na topologia vaga e aplicações a limites de escala do tipo Browniano."
-              >
-                Convergence of Feller processes through generators, quantitative rates in the vague topology, and applications to Brownian-type scaling limits.
-              </p>
-            </div>
-            <a class="publication-link" href="https://sigaa.ufba.br/sigaa/public/programa/defesas.jsf?id=2147&amp;lc=pt_BR" target="_blank" rel="noreferrer" aria-label="Open thesis record at UFBA">
-              UFBA <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-        </div>
-
-        <div class="all-publications reveal">
-          <p data-en="For the complete and current record, see my academic profiles." data-pt="Para a relação completa e atualizada, consulte meus perfis acadêmicos.">
-            For the complete and current record, see my academic profiles.
-          </p>
-          <div>
-            <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar ↗</a>
-            <a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-dark" id="cv" aria-labelledby="cv-title">
-        <div class="shell">
-          <div class="section-heading section-heading-light reveal">
-            <p class="section-index">04</p>
-            <h2 id="cv-title" data-en="Academic path" data-pt="Trajetória acadêmica">Academic path</h2>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item reveal">
-              <p class="timeline-date">2025 — 2026</p>
-              <div>
-                <h3 data-en="Postdoctoral researcher" data-pt="Pesquisador de pós-doutorado">Postdoctoral researcher</h3>
-                <p data-en="University of Augsburg · Probability Theory and Applications" data-pt="Universidade de Augsburg · Teoria da Probabilidade e Aplicações">
-                  University of Augsburg · Probability Theory and Applications
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item reveal">
-              <p class="timeline-date">2021 — 2025</p>
-              <div>
-                <h3 data-en="PhD in Mathematics" data-pt="Doutorado em Matemática">PhD in Mathematics</h3>
-                <p data-en="Federal University of Bahia (UFBA)" data-pt="Universidade Federal da Bahia (UFBA)">Federal University of Bahia (UFBA)</p>
-              </div>
-            </article>
-
-            <article class="timeline-item reveal">
-              <p class="timeline-date">2019 — 2021</p>
-              <div>
-                <h3 data-en="MSc in Mathematics" data-pt="Mestrado em Matemática">MSc in Mathematics</h3>
-                <p data-en="Federal University of Bahia (UFBA)" data-pt="Universidade Federal da Bahia (UFBA)">Federal University of Bahia (UFBA)</p>
-              </div>
-            </article>
-
-            <article class="timeline-item reveal">
-              <p class="timeline-date">2016</p>
-              <div>
-                <h3 data-en="BSc in Mathematics" data-pt="Bacharelado em Matemática">BSc in Mathematics</h3>
-                <p data-en="Federal University of Minas Gerais (UFMG)" data-pt="Universidade Federal de Minas Gerais (UFMG)">Federal University of Minas Gerais (UFMG)</p>
-              </div>
-            </article>
-          </div>
-
-          <a class="button button-light reveal" href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">
-            <span data-en="View complete Lattes CV" data-pt="Ver Currículo Lattes completo">View complete Lattes CV</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section shell" id="contact" aria-labelledby="contact-title">
-        <div class="section-heading reveal">
-          <p class="section-index">05</p>
-          <h2 id="contact-title" data-en="Contact" data-pt="Contato">Contact</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-copy reveal">
-            <p
-              data-en="I welcome conversations about probability, stochastic processes, research visits and potential collaborations."
-              data-pt="Estou aberto a conversas sobre probabilidade, processos estocásticos, visitas de pesquisa e possíveis colaborações."
-            >
-              I welcome conversations about probability, stochastic processes, research visits and potential collaborations.
-            </p>
-          </div>
-
-          <div class="contact-links reveal">
-            <a href="mailto:eduardo.sampaio@ufba.br">
-              <span data-en="Email" data-pt="E-mail">Email</span>
-              <strong>eduardo.sampaio@ufba.br</strong>
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">
-              <span>Google Scholar</span>
-              <strong data-en="Research profile" data-pt="Perfil de pesquisa">Research profile</strong>
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">
-              <span>Lattes</span>
-              <strong data-en="Academic CV" data-pt="Currículo acadêmico">Academic CV</strong>
-              <span aria-hidden="true">↗</span>
-            </a>
+        <div class="feature-content reveal">
+          <p class="publication-type" data-en="Accepted · Forthcoming in Bernoulli Journal" data-pt="Aceito · No prelo no Bernoulli Journal">Accepted · Forthcoming in Bernoulli Journal</p>
+          <h2 id="feature-title">A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</h2>
+          <p class="publication-authors">Dirk Erhard, Tertuliano Franco, Milton Jara &amp; Eduardo Pimenta</p>
+          <div class="feature-actions">
+            <a href="trabalhos.html"><span data-en="See all works" data-pt="Ver todos os trabalhos">See all works</span> →</a>
+            <a href="https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers" target="_blank" rel="noreferrer">Bernoulli Journal ↗</a>
           </div>
         </div>
       </section>
@@ -356,7 +146,7 @@
     <footer class="site-footer">
       <div class="shell footer-inner">
         <p>© <span id="current-year"></span> Eduardo Sampaio Pimenta</p>
-        <a href="#top"><span data-en="Back to top" data-pt="Voltar ao topo">Back to top</span> ↑</a>
+        <a href="contato.html"><span data-en="Contact" data-pt="Contato">Contact</span> →</a>
       </div>
     </footer>
   </body>

@@ -7,18 +7,8 @@ const navigation = document.querySelector(".site-nav");
 const header = document.querySelector(".site-header");
 
 const metadata = {
-  en: {
-    title: "Eduardo Sampaio Pimenta — Mathematics",
-    description:
-      "Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory, stochastic processes, scaling limits and random walks.",
-    buttonLabel: "Mudar para português",
-  },
-  pt: {
-    title: "Eduardo Sampaio Pimenta — Matemática",
-    description:
-      "Site acadêmico de Eduardo Sampaio Pimenta, matemático e pesquisador em teoria da probabilidade, processos estocásticos, limites de escala e passeios aleatórios.",
-    buttonLabel: "Switch to English",
-  },
+  en: { buttonLabel: "Mudar para português" },
+  pt: { buttonLabel: "Switch to English" },
 };
 
 let currentLanguage = localStorage.getItem("esp-language") || "en";
@@ -31,8 +21,9 @@ function setLanguage(language) {
     element.textContent = element.dataset[language];
   });
 
-  document.title = metadata[language].title;
-  document.querySelector('meta[name="description"]').content = metadata[language].description;
+  document.title = document.body.dataset[`title${language === "en" ? "En" : "Pt"}`];
+  document.querySelector('meta[name="description"]').content =
+    document.body.dataset[`description${language === "en" ? "En" : "Pt"}`];
   languageButton.setAttribute("aria-label", metadata[language].buttonLabel);
   languageCurrent.textContent = language.toUpperCase();
   languageTarget.textContent = language === "en" ? "PT" : "EN";
@@ -86,22 +77,25 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-const sections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".site-nav a");
+const portraitSlides = [...document.querySelectorAll(".portrait-slide")];
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-      });
-    });
-  },
-  { rootMargin: "-35% 0px -55%", threshold: 0 },
-);
+if (portraitSlides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let activePortrait = 0;
 
-sections.forEach((section) => sectionObserver.observe(section));
+  window.setInterval(() => {
+    portraitSlides[activePortrait].classList.remove("active");
+    activePortrait = (activePortrait + 1) % portraitSlides.length;
+    portraitSlides[activePortrait].classList.add("active");
+  }, 5200);
+}
+
+const currentPage = document.body.dataset.page;
+document.querySelectorAll(".site-nav a[data-page-link]").forEach((link) => {
+  if (link.dataset.pageLink === currentPage) {
+    link.classList.add("active");
+    link.setAttribute("aria-current", "page");
+  }
+});
 
 document.getElementById("current-year").textContent = new Date().getFullYear();
 setLanguage(currentLanguage);

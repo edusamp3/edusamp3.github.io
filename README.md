@@ -1,6 +1,19 @@
 # Academic website — Eduardo Sampaio Pimenta
 
-A bilingual, responsive academic website built with plain HTML, CSS and JavaScript. It can be hosted for free on GitHub Pages and does not require a build step.
+A bilingual, responsive, multipage academic website built with plain HTML, CSS and JavaScript. It can be hosted for free on GitHub Pages and does not require a build step.
+
+The home page alternates automatically between two photographs in `assets/`.
+
+## Pages
+
+- `index.html` — home
+- `sobre.html` — about
+- `pesquisa.html` — research
+- `trabalhos.html` — five highlights and complete academic production
+- `simulacoes.html` — simulation projects and source-code links
+- `publicacoes.html` — compatibility redirect to `trabalhos.html`
+- `curriculo.html` — academic CV
+- `contato.html` — contact
 
 ## Preview locally
 
@@ -11,25 +24,6 @@ python3 -m http.server 8000
 ```
 
 Then visit `http://localhost:8000`.
-
-## Add the portrait later
-
-1. Save the photo as `assets/profile.jpg`.
-2. In `index.html`, replace the content inside `.portrait-frame` with:
-
-```html
-<img src="assets/profile.jpg" alt="Eduardo Sampaio Pimenta" />
-```
-
-3. Add this rule to `styles.css`:
-
-```css
-.portrait-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-```
 
 ## Publish with GitHub Pages
 
@@ -43,7 +37,7 @@ Then visit `http://localhost:8000`.
 
 - Confirm exact dates and formal status of the postdoctoral period in Augsburg.
 - Confirm whether `eduardo.sampaio@ufba.br` should remain the public contact email.
-- Add or revise publications after reviewing the complete Lattes record.
+- Update the production list whenever the Lattes CV changes.
 - Add an ORCID or GitHub link, if applicable.
 - Add a downloadable PDF CV when available.
 
@@ -53,5 +47,6 @@ Then visit `http://localhost:8000`.
 - UFBA graduate program public thesis records.
 - University of Augsburg probability group page and seminar announcement.
 - arXiv record `2408.06830`.
+- arXiv record `2507.10528`.
+- Bernoulli Journal forthcoming-papers page.
 - Public Google Scholar profile.
-
