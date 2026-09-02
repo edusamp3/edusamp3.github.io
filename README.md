@@ -2,7 +2,7 @@
 
 A bilingual, responsive, multipage academic website built with plain HTML, CSS and JavaScript. It can be hosted for free on GitHub Pages and does not require a build step.
 
-The home page alternates automatically between two photographs in `assets/`.
+The home page presents a lightweight looping SNOB simulation and alternates automatically between two photographs in `assets/`.
 
 ## Pages
 

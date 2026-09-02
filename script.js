@@ -78,8 +78,14 @@ const revealObserver = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
 const portraitSlides = [...document.querySelectorAll(".portrait-slide")];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const heroSimulation = document.querySelector(".hero-simulation");
 
-if (portraitSlides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (heroSimulation && reducedMotion.matches) {
+  heroSimulation.pause();
+}
+
+if (portraitSlides.length > 1 && !reducedMotion.matches) {
   let activePortrait = 0;
 
   window.setInterval(() => {
