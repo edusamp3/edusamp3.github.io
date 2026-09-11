@@ -80,9 +80,36 @@ document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe
 const portraitSlides = [...document.querySelectorAll(".portrait-slide")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const heroSimulation = document.querySelector(".hero-simulation");
+const simulationVideos = Array.isArray(window.simulationVideos)
+  ? window.simulationVideos.filter(Boolean)
+  : [];
 
-if (heroSimulation && reducedMotion.matches) {
-  heroSimulation.pause();
+if (heroSimulation && simulationVideos.length > 0) {
+  let activeSimulation = 0;
+
+  function loadSimulation(index) {
+    heroSimulation.src = simulationVideos[index];
+    heroSimulation.load();
+
+    if (!reducedMotion.matches) {
+      heroSimulation.play().catch(() => {});
+    }
+  }
+
+  if (simulationVideos.length === 1) {
+    heroSimulation.loop = true;
+  } else if (!reducedMotion.matches) {
+    heroSimulation.addEventListener("ended", () => {
+      activeSimulation = (activeSimulation + 1) % simulationVideos.length;
+      loadSimulation(activeSimulation);
+    });
+  }
+
+  loadSimulation(activeSimulation);
+
+  if (reducedMotion.matches) {
+    heroSimulation.pause();
+  }
 }
 
 if (portraitSlides.length > 1 && !reducedMotion.matches) {

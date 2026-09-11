@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +14,17 @@
     <title>Eduardo Sampaio Pimenta — Mathematics</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.simulationVideos = [
+        "{{ '/assets/snob-3d-loop.mp4' | relative_url }}",
+        {% assign simulation_files = site.static_files | sort: "path" %}
+        {% for simulation_file in simulation_files %}
+          {% if simulation_file.path contains '/assets/simulacoes/' and simulation_file.extname == '.mp4' %}
+            "{{ simulation_file.path | relative_url }}",
+          {% endif %}
+        {% endfor %}
+      ];
+    </script>
     <script src="script.js" defer></script>
   </head>
 
@@ -73,10 +86,8 @@
 
         <div class="hero-visual reveal">
           <div class="simulation-stage">
-            <video class="hero-simulation" autoplay muted loop playsinline preload="metadata" poster="assets/snob-3d-poster.jpg" aria-label="3D simulation of Snapping-Out Brownian motion">
-              <source src="assets/snob-3d-loop.mp4" type="video/mp4" />
-            </video>
-            <p class="simulation-label" data-en="SNOB · 3D simulation" data-pt="SNOB · Simulação 3D">SNOB · 3D simulation</p>
+            <video class="hero-simulation" autoplay muted playsinline preload="metadata" poster="assets/snob-3d-poster.jpg" aria-label="Stochastic process simulations"></video>
+            <p class="simulation-label" data-en="Stochastic simulations" data-pt="Simulações estocásticas">Stochastic simulations</p>
             <div class="portrait-frame" role="img" aria-label="Eduardo Sampaio Pimenta">
               <img class="portrait-slide active" src="assets/eduardo-pimenta-retrato.jpg" alt="" aria-hidden="true" decoding="async" />
               <img class="portrait-slide" src="assets/eduardo-pimenta-palestra.jpg" alt="" aria-hidden="true" decoding="async" />
