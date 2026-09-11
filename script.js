@@ -81,14 +81,26 @@ const portraitSlides = [...document.querySelectorAll(".portrait-slide")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const heroSimulation = document.querySelector(".hero-simulation");
 const simulationVideos = Array.isArray(window.simulationVideos)
-  ? window.simulationVideos.filter(Boolean)
+  ? [...new Set(window.simulationVideos.filter(Boolean))]
   : [];
 
+function shuffleVideos(videos) {
+  const shuffled = [...videos];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+
+  return shuffled;
+}
+
 if (heroSimulation && simulationVideos.length > 0) {
+  let playlist = shuffleVideos(simulationVideos);
   let activeSimulation = 0;
 
-  function loadSimulation(index) {
-    heroSimulation.src = simulationVideos[index];
+  function loadSimulation(video) {
+    heroSimulation.src = video;
     heroSimulation.load();
 
     if (!reducedMotion.matches) {
@@ -100,12 +112,24 @@ if (heroSimulation && simulationVideos.length > 0) {
     heroSimulation.loop = true;
   } else if (!reducedMotion.matches) {
     heroSimulation.addEventListener("ended", () => {
-      activeSimulation = (activeSimulation + 1) % simulationVideos.length;
-      loadSimulation(activeSimulation);
+      const lastVideo = playlist[activeSimulation];
+      activeSimulation += 1;
+
+      if (activeSimulation >= playlist.length) {
+        playlist = shuffleVideos(simulationVideos);
+        activeSimulation = 0;
+
+        if (playlist[0] === lastVideo) {
+          const swapIndex = 1 + Math.floor(Math.random() * (playlist.length - 1));
+          [playlist[0], playlist[swapIndex]] = [playlist[swapIndex], playlist[0]];
+        }
+      }
+
+      loadSimulation(playlist[activeSimulation]);
     });
   }
 
-  loadSimulation(activeSimulation);
+  loadSimulation(playlist[activeSimulation]);
 
   if (reducedMotion.matches) {
     heroSimulation.pause();
