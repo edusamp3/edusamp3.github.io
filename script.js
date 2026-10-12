@@ -1,157 +1,147 @@
-const languageButton = document.querySelector(".language-toggle");
-const languageCurrent = document.querySelector(".language-current");
-const languageTarget = document.querySelector(".language-target");
+const languages = ["en", "pt"];
+const languageButtons = document.querySelectorAll("[data-language]");
 const translatableElements = document.querySelectorAll("[data-en][data-pt]");
-const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".site-nav");
-const header = document.querySelector(".site-header");
-
-const metadata = {
-  en: { buttonLabel: "Mudar para português" },
-  pt: { buttonLabel: "Switch to English" },
-};
-
-let currentLanguage = localStorage.getItem("esp-language") || "en";
-
-function setLanguage(language) {
-  currentLanguage = language;
-  document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
-
-  translatableElements.forEach((element) => {
-    element.textContent = element.dataset[language];
-  });
-
-  document.title = document.body.dataset[`title${language === "en" ? "En" : "Pt"}`];
-  document.querySelector('meta[name="description"]').content =
-    document.body.dataset[`description${language === "en" ? "En" : "Pt"}`];
-  languageButton.setAttribute("aria-label", metadata[language].buttonLabel);
-  languageCurrent.textContent = language.toUpperCase();
-  languageTarget.textContent = language === "en" ? "PT" : "EN";
-  localStorage.setItem("esp-language", language);
-}
-
-languageButton.addEventListener("click", () => {
-  setLanguage(currentLanguage === "en" ? "pt" : "en");
-});
-
-function closeMenu() {
-  menuButton.setAttribute("aria-expanded", "false");
-  navigation.classList.remove("open");
-  document.body.classList.remove("menu-open");
-}
-
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  navigation.classList.toggle("open", !isOpen);
-  document.body.classList.toggle("menu-open", !isOpen);
-});
-
-navigation.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", closeMenu);
-});
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 960) closeMenu();
-});
-
-window.addEventListener(
-  "scroll",
-  () => {
-    header.classList.toggle("scrolled", window.scrollY > 12);
-  },
-  { passive: true },
-);
-
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12, rootMargin: "0px 0px -40px" },
-);
-
-document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
-
-const portraitSlides = [...document.querySelectorAll(".portrait-slide")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const heroSimulation = document.querySelector(".hero-simulation");
-const simulationVideos = Array.isArray(window.simulationVideos)
-  ? [...new Set(window.simulationVideos.filter(Boolean))]
-  : [];
 
-function shuffleVideos(videos) {
-  const shuffled = [...videos];
+let currentLanguage = localStorage.getItem("esp-language");
+if (!languages.includes(currentLanguage)) currentLanguage = "en";
 
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+function unique(items) {
+  return [...new Set((items || []).filter(Boolean))];
+}
+
+function shuffle(items) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
     const randomIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    [result[index], result[randomIndex]] = [result[randomIndex], result[index]];
+  }
+  return result;
+}
+
+function mediaLabel(path) {
+  const filename = decodeURIComponent(path.split("/").pop() || "");
+  return filename
+    .replace(/\.[^.]+$/, "")
+    .replace(/^\d+[\s_-]*/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+const simulationVideo = document.getElementById("simulation-video");
+const simulationName = document.getElementById("simulation-name");
+const simulationCount = document.getElementById("simulation-count");
+const simulationToggle = document.getElementById("simulation-toggle");
+const simulationNext = document.getElementById("simulation-next");
+const videos = unique(window.siteMedia?.videos);
+let videoOrder = shuffle(videos);
+let videoIndex = 0;
+
+function simulationToggleText() {
+  if (!simulationToggle) return;
+  const isPaused = simulationVideo?.paused ?? true;
+  const key = isPaused ? "Play" : "Pause";
+  const labels = {
+    Play: { en: "Play", pt: "Reproduzir" },
+    Pause: { en: "Pause", pt: "Pausar" },
+  };
+  simulationToggle.textContent = labels[key][currentLanguage];
+  simulationToggle.dataset.state = isPaused ? "paused" : "playing";
+}
+
+function loadVideo(index, autoplay = true) {
+  if (!simulationVideo || videoOrder.length === 0) return;
+  videoIndex = (index + videoOrder.length) % videoOrder.length;
+  const source = videoOrder[videoIndex];
+  simulationVideo.src = source;
+  simulationVideo.load();
+  simulationName.textContent = mediaLabel(source);
+  simulationCount.textContent = `${videoIndex + 1} / ${videoOrder.length}`;
+
+  if (autoplay && !reducedMotion.matches) {
+    simulationVideo.play().catch(simulationToggleText);
+  } else {
+    simulationVideo.pause();
+  }
+  simulationToggleText();
+}
+
+function nextVideo() {
+  if (videoOrder.length < 2) {
+    if (simulationVideo) {
+      simulationVideo.currentTime = 0;
+      simulationVideo.play().catch(simulationToggleText);
+    }
+    return;
   }
 
-  return shuffled;
-}
-
-if (heroSimulation && simulationVideos.length > 0) {
-  let playlist = shuffleVideos(simulationVideos);
-  let activeSimulation = 0;
-
-  function loadSimulation(video) {
-    heroSimulation.src = video;
-    heroSimulation.load();
-
-    if (!reducedMotion.matches) {
-      heroSimulation.play().catch(() => {});
+  const previous = videoOrder[videoIndex];
+  videoIndex += 1;
+  if (videoIndex >= videoOrder.length) {
+    videoOrder = shuffle(videos);
+    videoIndex = 0;
+    if (videoOrder[0] === previous) {
+      const swapIndex = 1 + Math.floor(Math.random() * (videoOrder.length - 1));
+      [videoOrder[0], videoOrder[swapIndex]] = [videoOrder[swapIndex], videoOrder[0]];
     }
   }
+  loadVideo(videoIndex);
+}
 
-  if (simulationVideos.length === 1) {
-    heroSimulation.loop = true;
-  } else if (!reducedMotion.matches) {
-    heroSimulation.addEventListener("ended", () => {
-      const lastVideo = playlist[activeSimulation];
-      activeSimulation += 1;
+if (simulationVideo && videos.length > 0) {
+  if (videos.length === 1) simulationVideo.loop = true;
+  simulationVideo.addEventListener("ended", nextVideo);
+  simulationVideo.addEventListener("play", simulationToggleText);
+  simulationVideo.addEventListener("pause", simulationToggleText);
+  simulationNext?.addEventListener("click", nextVideo);
+  simulationToggle?.addEventListener("click", () => {
+    if (simulationVideo.paused) {
+      simulationVideo.play().catch(simulationToggleText);
+    } else {
+      simulationVideo.pause();
+    }
+  });
+  loadVideo(0, !reducedMotion.matches);
+} else if (simulationVideo) {
+  simulationVideo.closest(".simulation-player")?.setAttribute("hidden", "");
+}
 
-      if (activeSimulation >= playlist.length) {
-        playlist = shuffleVideos(simulationVideos);
-        activeSimulation = 0;
+const portraitLayers = [...document.querySelectorAll(".portrait-layer")];
+const photos = shuffle(unique(window.siteMedia?.photos));
+let photoIndex = 0;
+let activeLayer = 0;
 
-        if (playlist[0] === lastVideo) {
-          const swapIndex = 1 + Math.floor(Math.random() * (playlist.length - 1));
-          [playlist[0], playlist[swapIndex]] = [playlist[swapIndex], playlist[0]];
-        }
-      }
+if (portraitLayers.length > 0 && photos.length > 0) {
+  portraitLayers[0].src = photos[0];
+  portraitLayers[0].classList.add("is-active");
 
-      loadSimulation(playlist[activeSimulation]);
-    });
-  }
-
-  loadSimulation(playlist[activeSimulation]);
-
-  if (reducedMotion.matches) {
-    heroSimulation.pause();
+  if (portraitLayers.length > 1 && photos.length > 1 && !reducedMotion.matches) {
+    window.setInterval(() => {
+      photoIndex = (photoIndex + 1) % photos.length;
+      const nextLayer = activeLayer === 0 ? 1 : 0;
+      portraitLayers[nextLayer].src = photos[photoIndex];
+      portraitLayers[nextLayer].classList.add("is-active");
+      portraitLayers[activeLayer].classList.remove("is-active");
+      activeLayer = nextLayer;
+    }, 6000);
   }
 }
 
-if (portraitSlides.length > 1 && !reducedMotion.matches) {
-  let activePortrait = 0;
-
-  window.setInterval(() => {
-    portraitSlides[activePortrait].classList.remove("active");
-    activePortrait = (activePortrait + 1) % portraitSlides.length;
-    portraitSlides[activePortrait].classList.add("active");
-  }, 5200);
+function setLanguage(language) {
+  currentLanguage = languages.includes(language) ? language : "en";
+  document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+  translatableElements.forEach((element) => {
+    element.textContent = element.dataset[currentLanguage];
+  });
+  languageButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.language === currentLanguage));
+  });
+  localStorage.setItem("esp-language", currentLanguage);
+  simulationToggleText();
 }
 
-const currentPage = document.body.dataset.page;
-document.querySelectorAll(".site-nav a[data-page-link]").forEach((link) => {
-  if (link.dataset.pageLink === currentPage) {
-    link.classList.add("active");
-    link.setAttribute("aria-current", "page");
-  }
+languageButtons.forEach((button) => {
+  button.addEventListener("click", () => setLanguage(button.dataset.language));
 });
 
 document.getElementById("current-year").textContent = new Date().getFullYear();

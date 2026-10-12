@@ -5,159 +5,239 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory." />
+    <meta
+      name="description"
+      content="Academic website of Eduardo Sampaio Pimenta, mathematician working in probability theory and stochastic processes."
+    />
     <meta name="author" content="Eduardo Sampaio Pimenta" />
-    <meta name="theme-color" content="#123b3a" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Eduardo Sampaio Pimenta — Mathematics" />
-    <meta property="og:description" content="Research in probability theory, stochastic processes, scaling limits and random walks." />
-    <title>Eduardo Sampaio Pimenta — Mathematics</title>
+    <meta property="og:title" content="Eduardo Sampaio Pimenta" />
+    <meta
+      property="og:description"
+      content="Research in probability theory, stochastic processes, scaling limits and random walks."
+    />
+    <title>Eduardo Sampaio Pimenta</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
+
     <script>
-      window.simulationVideos = [
-        "{{ '/assets/snob-3d-loop.mp4' | relative_url }}",
-        {% assign simulation_files = site.static_files | sort: "path" %}
-        {% for simulation_file in simulation_files %}
-          {% if simulation_file.path contains '/assets/simulacoes/' and simulation_file.extname == '.mp4' %}
-            "{{ simulation_file.path | relative_url }}",
-          {% endif %}
-        {% endfor %}
-      ];
+      /*
+       * GitHub Pages/Jekyll fills this manifest automatically from the two
+       * media folders. The fallback keeps local previews working too.
+       */
+      window.siteMedia = (() => {
+        const renderedManifest = String.raw`{
+          "photos": [
+            {% assign media_files = site.static_files | sort: "path" %}
+            {% for media_file in media_files %}
+              {% if media_file.path contains '/assets/fotos/' %}
+                {% if media_file.extname == '.jpg' or media_file.extname == '.jpeg' or media_file.extname == '.png' or media_file.extname == '.webp' or media_file.extname == '.avif' or media_file.extname == '.JPG' or media_file.extname == '.JPEG' or media_file.extname == '.PNG' %}
+                  "{{ media_file.path | relative_url }}",
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            ""
+          ],
+          "videos": [
+            {% for media_file in media_files %}
+              {% if media_file.path contains '/assets/simulacoes/' %}
+                {% if media_file.extname == '.mp4' or media_file.extname == '.webm' or media_file.extname == '.MP4' or media_file.extname == '.WEBM' %}
+                  "{{ media_file.path | relative_url }}",
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            ""
+          ]
+        }`;
+
+        try {
+          const manifest = JSON.parse(renderedManifest);
+          return {
+            photos: manifest.photos.filter(Boolean),
+            videos: manifest.videos.filter(Boolean),
+          };
+        } catch (error) {
+          return {
+            photos: [
+              "assets/fotos/01-eduardo-pimenta-retrato.jpg",
+              "assets/fotos/02-eduardo-pimenta-palestra.jpg",
+            ],
+            videos: [
+              "assets/simulacoes/02-snob-multiplas-esferas-3d.mp4",
+              "assets/simulacoes/03-simulacao-01.mp4",
+              "assets/simulacoes/04-simulacao-02.mp4",
+            ],
+          };
+        }
+      })();
     </script>
     <script src="script.js" defer></script>
   </head>
 
-  <body
-    data-page="home"
-    data-title-en="Eduardo Sampaio Pimenta — Mathematics"
-    data-title-pt="Eduardo Sampaio Pimenta — Matemática"
-    data-description-en="Academic website of Eduardo Sampaio Pimenta, mathematician and researcher in probability theory."
-    data-description-pt="Site acadêmico de Eduardo Sampaio Pimenta, matemático e pesquisador em teoria da probabilidade."
-  >
+  <body>
     <a class="skip-link" href="#main-content" data-en="Skip to content" data-pt="Ir para o conteúdo">Skip to content</a>
 
     <header class="site-header">
-      <div class="shell header-inner">
-        <a class="brand" href="index.html" aria-label="Eduardo Sampaio Pimenta — home">
-          <span class="brand-mark" aria-hidden="true">EP</span>
-          <span class="brand-name">Eduardo Pimenta</span>
-        </a>
+      <div class="page-width header-inner">
+        <a class="site-name" href="#top">Eduardo Sampaio Pimenta</a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          <span class="sr-only" data-en="Open navigation" data-pt="Abrir navegação">Open navigation</span>
-          <span></span><span></span>
-        </button>
-
-        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a href="sobre.html" data-page-link="about" data-en="About" data-pt="Sobre">About</a>
-          <a href="pesquisa.html" data-page-link="research" data-en="Research" data-pt="Pesquisa">Research</a>
-          <a href="trabalhos.html" data-page-link="works" data-en="Works" data-pt="Trabalhos">Works</a>
-          <a href="simulacoes.html" data-page-link="simulations" data-en="Simulations" data-pt="Simulações">Simulations</a>
-          <a href="curriculo.html" data-page-link="cv" data-en="CV" data-pt="Currículo">CV</a>
-          <a href="contato.html" data-page-link="contact" data-en="Contact" data-pt="Contato">Contact</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#about" data-en="About" data-pt="Sobre">About</a>
+          <a href="#research" data-en="Research" data-pt="Pesquisa">Research</a>
+          <a href="#publications" data-en="Publications" data-pt="Publicações">Publications</a>
+          <a href="#simulations" data-en="Simulations" data-pt="Simulações">Simulations</a>
         </nav>
 
-        <button class="language-toggle" type="button" aria-label="Mudar para português">
-          <span class="language-current">EN</span><span aria-hidden="true">/</span><span class="language-target">PT</span>
-        </button>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-language="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-language="pt" aria-pressed="false">PT</button>
+        </div>
       </div>
     </header>
 
-    <main id="main-content">
-      <section class="hero shell" aria-labelledby="hero-title">
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-en="Mathematician · Probability Theory" data-pt="Matemático · Teoria da Probabilidade">Mathematician · Probability Theory</p>
-          <h1 id="hero-title">Eduardo<br />Sampaio Pimenta</h1>
+    <main id="main-content" class="page-width">
+      <section class="profile" id="top" aria-labelledby="page-title">
+        <aside class="profile-sidebar">
+          <figure class="portrait" role="img" aria-label="Eduardo Sampaio Pimenta">
+            <img
+              class="portrait-layer is-active"
+              src="assets/fotos/01-eduardo-pimenta-retrato.jpg"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+            />
+            <img class="portrait-layer" alt="" aria-hidden="true" decoding="async" />
+          </figure>
+          <p class="photo-caption" data-en="Mathematician · Probability" data-pt="Matemático · Probabilidade">
+            Mathematician · Probability
+          </p>
+        </aside>
+
+        <div class="profile-copy" id="about">
+          <h1 id="page-title">Eduardo Sampaio Pimenta</h1>
+          <p class="role" data-en="Mathematician working in probability theory" data-pt="Matemático que trabalha com teoria da probabilidade">
+            Mathematician working in probability theory
+          </p>
+
           <p
-            class="hero-lead"
-            data-en="I study stochastic processes through scaling limits, random walks and their connections with Brownian motion."
-            data-pt="Estudo processos estocásticos por meio de limites de escala, passeios aleatórios e suas conexões com o movimento Browniano."
-          >I study stochastic processes through scaling limits, random walks and their connections with Brownian motion.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="pesquisa.html">
-              <span data-en="Explore my research" data-pt="Conheça minha pesquisa">Explore my research</span><span aria-hidden="true">→</span>
-            </a>
-            <a class="button button-text" href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">
-              <span data-en="Lattes CV" data-pt="Currículo Lattes">Lattes CV</span><span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
+            data-en="I am a Brazilian mathematician interested in stochastic processes, scaling limits and random walks. I completed my PhD in Mathematics at the Federal University of Bahia (UFBA) in 2025 and most recently carried out postdoctoral research at the University of Augsburg."
+            data-pt="Sou um matemático brasileiro interessado em processos estocásticos, limites de escala e passeios aleatórios. Concluí o doutorado em Matemática na Universidade Federal da Bahia (UFBA) em 2025 e, mais recentemente, realizei pesquisa de pós-doutorado na Universidade de Augsburg."
+          >
+            I am a Brazilian mathematician interested in stochastic processes, scaling limits and random walks. I completed my PhD in Mathematics at the Federal University of Bahia (UFBA) in 2025 and most recently carried out postdoctoral research at the University of Augsburg.
+          </p>
 
-        <div class="hero-visual reveal">
-          <div class="simulation-stage">
-            <video class="hero-simulation" autoplay muted playsinline preload="metadata" poster="assets/snob-3d-poster.jpg" aria-label="Stochastic process simulations"></video>
-            <p class="simulation-label" data-en="Stochastic simulations" data-pt="Simulações estocásticas">Stochastic simulations</p>
-            <div class="portrait-frame" role="img" aria-label="Eduardo Sampaio Pimenta">
-              <img class="portrait-slide active" src="assets/eduardo-pimenta-retrato.jpg" alt="" aria-hidden="true" decoding="async" />
-              <img class="portrait-slide" src="assets/eduardo-pimenta-palestra.jpg" alt="" aria-hidden="true" decoding="async" />
-            </div>
-          </div>
-        </div>
+          <p
+            data-en="My work studies how discrete random systems converge to continuous processes and how boundary mechanisms affect their limiting behavior."
+            data-pt="Meu trabalho estuda como sistemas aleatórios discretos convergem para processos contínuos e como mecanismos de fronteira afetam seu comportamento limite."
+          >
+            My work studies how discrete random systems converge to continuous processes and how boundary mechanisms affect their limiting behavior.
+          </p>
 
-        <div class="hero-facts reveal" aria-label="Academic highlights">
-          <div><span class="fact-number">2025</span><span class="fact-label" data-en="PhD in Mathematics · UFBA" data-pt="Doutorado em Matemática · UFBA">PhD in Mathematics · UFBA</span></div>
-          <div><span class="fact-number">2025–26</span><span class="fact-label" data-en="Postdoctoral research · Augsburg" data-pt="Pesquisa de pós-doutorado · Augsburg">Postdoctoral research · Augsburg</span></div>
-          <div><span class="fact-number">math.PR</span><span class="fact-label" data-en="Probability on arXiv" data-pt="Probabilidade no arXiv">Probability on arXiv</span></div>
+          <ul class="profile-links" aria-label="Academic profiles">
+            <li><a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes</a></li>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a></li>
+            <li><a href="cv/cv.pdf" target="_blank" rel="noreferrer">CV (PDF)</a></li>
+            <li><a href="mailto:eduardo.sampaio@ufba.br">Email</a></li>
+            <!-- Add a confirmed ORCID link here when available. -->
+          </ul>
         </div>
       </section>
 
-      <section class="home-directory section-tinted" aria-labelledby="directory-title">
-        <div class="shell">
-          <div class="section-heading compact-heading reveal">
-            <p class="section-index">01</p>
-            <h2 id="directory-title" data-en="Academic profile" data-pt="Perfil acadêmico">Academic profile</h2>
-          </div>
-          <div class="page-link-grid">
-            <a class="page-link-card reveal" href="sobre.html">
-              <span class="card-number">A</span>
-              <h3 data-en="About" data-pt="Sobre">About</h3>
-              <p data-en="Background, academic interests and recent research experience." data-pt="Formação, interesses acadêmicos e experiência recente de pesquisa.">Background, academic interests and recent research experience.</p>
-              <span class="card-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="page-link-card reveal" href="pesquisa.html">
-              <span class="card-number">B</span>
-              <h3 data-en="Research" data-pt="Pesquisa">Research</h3>
-              <p data-en="Scaling limits, boundary random walks, Feller processes and dynamic percolation." data-pt="Limites de escala, passeios com fronteira, processos de Feller e percolação dinâmica.">Scaling limits, boundary random walks, Feller processes and dynamic percolation.</p>
-              <span class="card-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="page-link-card reveal" href="trabalhos.html">
-              <span class="card-number">C</span>
-              <h3 data-en="Works" data-pt="Trabalhos">Works</h3>
-              <p data-en="Five highlights and a complete list of papers, theses and talks." data-pt="Cinco destaques e a lista completa de artigos, teses e apresentações.">Five highlights and a complete list of papers, theses and talks.</p>
-              <span class="card-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="page-link-card reveal" href="simulacoes.html">
-              <span class="card-number">D</span>
-              <h3 data-en="Simulations" data-pt="Simulações">Simulations</h3>
-              <p data-en="Open-source code and numerical experiments supporting the research." data-pt="Códigos abertos e experimentos numéricos que apoiam a pesquisa.">Open-source code and numerical experiments supporting the research.</p>
-              <span class="card-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
+      <section class="content-section" id="research" aria-labelledby="research-title">
+        <h2 id="research-title" data-en="Research" data-pt="Pesquisa">Research</h2>
+        <div class="section-body">
+          <p
+            data-en="My main interests are in probability theory and stochastic processes, especially the following topics:"
+            data-pt="Meus principais interesses estão em teoria da probabilidade e processos estocásticos, especialmente nos seguintes temas:"
+          >
+            My main interests are in probability theory and stochastic processes, especially the following topics:
+          </p>
+          <ul class="plain-list">
+            <li data-en="scaling limits and invariance principles;" data-pt="limites de escala e princípios de invariância;">scaling limits and invariance principles;</li>
+            <li data-en="random walks with boundary mechanisms;" data-pt="passeios aleatórios com mecanismos de fronteira;">random walks with boundary mechanisms;</li>
+            <li data-en="Feller processes and generator methods;" data-pt="processos de Feller e métodos baseados em geradores;">Feller processes and generator methods;</li>
+            <li data-en="dynamic percolation and evolving random environments." data-pt="percolação dinâmica e ambientes aleatórios em evolução.">dynamic percolation and evolving random environments.</li>
+          </ul>
         </div>
       </section>
 
-      <section class="home-feature shell" aria-labelledby="feature-title">
-        <div class="feature-label reveal">
-          <p class="section-index">02</p>
-          <p data-en="Selected work" data-pt="Trabalho selecionado">Selected work</p>
+      <section class="content-section" id="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title" data-en="Publications and preprints" data-pt="Publicações e preprints">Publications and preprints</h2>
+        <div class="section-body">
+          <ol class="publication-list">
+            <li>
+              <p class="publication-title">A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</p>
+              <p>D. Erhard, T. Franco, M. Jara and E. Pimenta.</p>
+              <p class="publication-note">
+                <span data-en="Accepted, forthcoming in " data-pt="Aceito, no prelo no ">Accepted, forthcoming in </span><em>Bernoulli</em>.
+                <a href="https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers" target="_blank" rel="noreferrer">Journal page</a>
+              </p>
+            </li>
+            <li>
+              <p class="publication-title">Scaling Limit of Boundary Random Walks: A Martingale Problem Approach</p>
+              <p>J. C. Arroyave, E. Barros and E. Pimenta.</p>
+              <p class="publication-note">
+                <span data-en="Preprint, 2025." data-pt="Preprint, 2025.">Preprint, 2025.</span>
+                <a href="https://arxiv.org/abs/2507.10528" target="_blank" rel="noreferrer">arXiv</a>
+              </p>
+            </li>
+          </ol>
+          <p class="more-link">
+            <span data-en="Complete and current records:" data-pt="Registros completos e atualizados:">Complete and current records:</span>
+            <a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+          </p>
         </div>
-        <div class="feature-content reveal">
-          <p class="publication-type" data-en="Accepted · Forthcoming in Bernoulli Journal" data-pt="Aceito · No prelo no Bernoulli Journal">Accepted · Forthcoming in Bernoulli Journal</p>
-          <h2 id="feature-title">A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</h2>
-          <p class="publication-authors">Dirk Erhard, Tertuliano Franco, Milton Jara &amp; Eduardo Pimenta</p>
-          <div class="feature-actions">
-            <a href="trabalhos.html"><span data-en="See all works" data-pt="Ver todos os trabalhos">See all works</span> →</a>
-            <a href="https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers" target="_blank" rel="noreferrer">Bernoulli Journal ↗</a>
-          </div>
+      </section>
+
+      <section class="content-section" id="simulations" aria-labelledby="simulations-title">
+        <h2 id="simulations-title" data-en="Simulations" data-pt="Simulações">Simulations</h2>
+        <div class="section-body simulation-copy">
+          <p
+            data-en="A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened."
+            data-pt="Uma seleção rotativa de experimentos numéricos relacionados à minha pesquisa. A ordem muda sempre que a página é aberta."
+          >
+            A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened.
+          </p>
+          <p><a href="https://github.com/edusamp3/Simulations" target="_blank" rel="noreferrer" data-en="Simulation code on GitHub" data-pt="Códigos das simulações no GitHub">Simulation code on GitHub</a></p>
+        </div>
+
+        <figure class="simulation-player">
+          <video
+            id="simulation-video"
+            muted
+            autoplay
+            playsinline
+            preload="metadata"
+            poster="assets/snob-3d-poster.jpg"
+            aria-label="Stochastic process simulation"
+          ></video>
+          <figcaption class="simulation-meta">
+            <span id="simulation-name">Loading simulation…</span>
+            <span class="simulation-controls">
+              <button id="simulation-toggle" type="button" data-state="playing" data-en="Pause" data-pt="Pausar">Pause</button>
+              <span aria-hidden="true">·</span>
+              <button id="simulation-next" type="button" data-en="Next" data-pt="Próxima">Next</button>
+              <span id="simulation-count" aria-live="polite"></span>
+            </span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" data-en="Contact" data-pt="Contato">Contact</h2>
+        <div class="section-body">
+          <p><a href="mailto:eduardo.sampaio@ufba.br">eduardo.sampaio@ufba.br</a></p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="shell footer-inner">
+      <div class="page-width">
         <p>© <span id="current-year"></span> Eduardo Sampaio Pimenta</p>
-        <a href="contato.html"><span data-en="Contact" data-pt="Contato">Contact</span> →</a>
       </div>
     </footer>
   </body>

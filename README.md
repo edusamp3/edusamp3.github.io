@@ -1,52 +1,52 @@
 # Academic website — Eduardo Sampaio Pimenta
 
-A bilingual, responsive, multipage academic website built with plain HTML, CSS and JavaScript. It can be hosted for free on GitHub Pages and does not require a build step.
+A deliberately simple, bilingual, single-page academic website. It uses plain HTML, CSS and JavaScript and is ready for GitHub Pages.
 
-The home page presents a lightweight looping SNOB simulation and alternates automatically between two photographs in `assets/`.
+## Files
 
-## Pages
+- `index.html` — all site content and the automatic media manifest
+- `styles.css` — visual design
+- `script.js` — language switch, photo rotation and random video playlist
+- `assets/fotos/` — photographs shown in rotation
+- `assets/simulacoes/` — simulation videos shown in random order
+- `cv/cv.tex` — editable LaTeX source for the CV
+- `cv/cv.pdf` — PDF linked from the website
 
-- `index.html` — home
-- `sobre.html` — about
-- `pesquisa.html` — research
-- `trabalhos.html` — five highlights and complete academic production
-- `simulacoes.html` — simulation projects and source-code links
-- `publicacoes.html` — compatibility redirect to `trabalhos.html`
-- `curriculo.html` — academic CV
-- `contato.html` — contact
+## Add a simulation
+
+1. Compress the video for the web (MP4/H.264 is the safest format).
+2. Give it a short filename without spaces, for example `05-passeio-aleatorio-2d.mp4`.
+3. Put it in `assets/simulacoes/`.
+4. Commit and push with GitHub Desktop.
+
+GitHub Pages finds every MP4 or WebM in that folder automatically. The site shuffles the playlist whenever the page is opened and avoids repeating the same video between two rounds. Do not add another copy of the same video outside this folder.
+
+## Add a photograph
+
+Put a JPG, JPEG, PNG, WebP or AVIF file in `assets/fotos/`, then commit and push. Photographs are also discovered automatically and shown in a changing order.
+
+## Update the CV
+
+Edit `cv/cv.tex`, then generate the PDF from the `cv` folder:
+
+```bash
+pdflatex cv.tex
+pdflatex cv.tex
+```
+
+Commit both `cv.tex` and `cv.pdf`. The website always links to `cv/cv.pdf`, so the address never changes.
 
 ## Preview locally
 
-Open `index.html` directly in a browser, or run a small local server from this folder:
+The quickest preview is to open `index.html`; it uses the three bundled videos and two bundled photos as a fallback. To test automatic folder discovery exactly as GitHub Pages does, run Jekyll locally.
 
-```bash
-python3 -m http.server 8000
-```
+## Publish
 
-Then visit `http://localhost:8000`.
+Copy these files into the root of `edusamp3.github.io`, commit and push. GitHub Pages processes `index.html` and builds the media lists automatically.
 
-## Publish with GitHub Pages
+The old files `sobre.html`, `pesquisa.html`, `trabalhos.html`, `simulacoes.html`, `curriculo.html`, `contato.html` and `publicacoes.html` are no longer used. They may be deleted after the new `index.html` is working online.
 
-1. Create a new repository on GitHub.
-2. Upload all files in this folder to the repository root.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose the `main` branch and `/ (root)`, then save.
+## Profile links still to confirm
 
-## Content to review
-
-- Confirm exact dates and formal status of the postdoctoral period in Augsburg.
-- Confirm whether `eduardo.sampaio@ufba.br` should remain the public contact email.
-- Update the production list whenever the Lattes CV changes.
-- Add an ORCID or GitHub link, if applicable.
-- Add a downloadable PDF CV when available.
-
-## Sources used for the first version
-
-- Lattes CV supplied by Eduardo.
-- UFBA graduate program public thesis records.
-- University of Augsburg probability group page and seminar announcement.
-- arXiv record `2408.06830`.
-- arXiv record `2507.10528`.
-- Bernoulli Journal forthcoming-papers page.
-- Public Google Scholar profile.
+- ORCID: add only after confirming Eduardo's identifier.
+- Public email: currently `eduardo.sampaio@ufba.br`.
