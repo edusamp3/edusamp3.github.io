@@ -5,6 +5,10 @@ A deliberately simple, bilingual, single-page academic website. It uses plain HT
 ## Files
 
 - `index.html` — all site content and the automatic media manifest
+- `_includes/research.html` — research section
+- `_includes/publications.html` — publications and preprints
+- `_includes/simulations.html` — simulation section and video player
+- `_includes/contact.html` — contact section
 - `styles.css` — visual design
 - `script.js` — language switch, photo rotation and random video playlist
 - `assets/fotos/` — photographs shown in rotation
@@ -20,6 +24,10 @@ A deliberately simple, bilingual, single-page academic website. It uses plain HT
 4. Commit and push with GitHub Desktop.
 
 GitHub Pages finds every MP4 or WebM in that folder automatically. The site shuffles the playlist whenever the page is opened and avoids repeating the same video between two rounds. Do not add another copy of the same video outside this folder.
+
+## Edit a section
+
+The website is still a single page, but its main sections live in separate files under `_includes/`. Edit only the corresponding file. The lines such as `{% include research.html %}` in `index.html` assemble everything automatically when GitHub Pages publishes the site.
 
 ## Add a photograph
 

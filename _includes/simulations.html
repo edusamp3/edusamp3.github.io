@@ -1,0 +1,33 @@
+<section class="content-section" id="simulations" aria-labelledby="simulations-title">
+  <h2 id="simulations-title" data-en="Simulations" data-pt="Simulações">Simulations</h2>
+  <div class="section-body simulation-copy">
+    <p
+      data-en="A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened."
+      data-pt="Uma seleção rotativa de experimentos numéricos relacionados à minha pesquisa. A ordem muda sempre que a página é aberta."
+    >
+      A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened.
+    </p>
+    <p><a href="https://github.com/edusamp3/Simulations" target="_blank" rel="noreferrer" data-en="Simulation code on GitHub" data-pt="Códigos das simulações no GitHub">Simulation code on GitHub</a></p>
+  </div>
+
+  <figure class="simulation-player">
+    <video
+      id="simulation-video"
+      muted
+      autoplay
+      playsinline
+      preload="metadata"
+      poster="assets/snob-3d-poster.jpg"
+      aria-label="Stochastic process simulation"
+    ></video>
+    <figcaption class="simulation-meta">
+      <span id="simulation-name">Loading simulation…</span>
+      <span class="simulation-controls">
+        <button id="simulation-toggle" type="button" data-state="playing" data-en="Pause" data-pt="Pausar">Pause</button>
+        <span aria-hidden="true">·</span>
+        <button id="simulation-next" type="button" data-en="Next" data-pt="Próxima">Next</button>
+        <span id="simulation-count" aria-live="polite"></span>
+      </span>
+    </figcaption>
+  </figure>
+</section>

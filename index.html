@@ -145,94 +145,13 @@
         </div>
       </section>
 
-      <section class="content-section" id="research" aria-labelledby="research-title">
-        <h2 id="research-title" data-en="Research" data-pt="Pesquisa">Research</h2>
-        <div class="section-body">
-          <p
-            data-en="My main interests are in probability theory and stochastic processes, especially the following topics:"
-            data-pt="Meus principais interesses estão em teoria da probabilidade e processos estocásticos, especialmente nos seguintes temas:"
-          >
-            My main interests are in probability theory and stochastic processes, especially the following topics:
-          </p>
-          <ul class="plain-list">
-            <li data-en="scaling limits and invariance principles;" data-pt="limites de escala e princípios de invariância;">scaling limits and invariance principles;</li>
-            <li data-en="random walks with boundary mechanisms;" data-pt="passeios aleatórios com mecanismos de fronteira;">random walks with boundary mechanisms;</li>
-            <li data-en="Feller processes and generator methods;" data-pt="processos de Feller e métodos baseados em geradores;">Feller processes and generator methods;</li>
-            <li data-en="dynamic percolation and evolving random environments." data-pt="percolação dinâmica e ambientes aleatórios em evolução.">dynamic percolation and evolving random environments.</li>
-          </ul>
-        </div>
-      </section>
+      {% include research.html %}
 
-      <section class="content-section" id="publications" aria-labelledby="publications-title">
-        <h2 id="publications-title" data-en="Publications and preprints" data-pt="Publicações e preprints">Publications and preprints</h2>
-        <div class="section-body">
-          <ol class="publication-list">
-            <li>
-              <p class="publication-title">A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</p>
-              <p>D. Erhard, T. Franco, M. Jara and E. Pimenta.</p>
-              <p class="publication-note">
-                <span data-en="Accepted, forthcoming in " data-pt="Aceito, no prelo no ">Accepted, forthcoming in </span><em>Bernoulli</em>.
-                <a href="https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers" target="_blank" rel="noreferrer">Journal page</a>
-              </p>
-            </li>
-            <li>
-              <p class="publication-title">Scaling Limit of Boundary Random Walks: A Martingale Problem Approach</p>
-              <p>J. C. Arroyave, E. Barros and E. Pimenta.</p>
-              <p class="publication-note">
-                <span data-en="Preprint, 2025." data-pt="Preprint, 2025.">Preprint, 2025.</span>
-                <a href="https://arxiv.org/abs/2507.10528" target="_blank" rel="noreferrer">arXiv</a>
-              </p>
-            </li>
-          </ol>
-          <p class="more-link">
-            <span data-en="Complete and current records:" data-pt="Registros completos e atualizados:">Complete and current records:</span>
-            <a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes</a>
-            <span aria-hidden="true">·</span>
-            <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-          </p>
-        </div>
-      </section>
+      {% include publications.html %}
 
-      <section class="content-section" id="simulations" aria-labelledby="simulations-title">
-        <h2 id="simulations-title" data-en="Simulations" data-pt="Simulações">Simulations</h2>
-        <div class="section-body simulation-copy">
-          <p
-            data-en="A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened."
-            data-pt="Uma seleção rotativa de experimentos numéricos relacionados à minha pesquisa. A ordem muda sempre que a página é aberta."
-          >
-            A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened.
-          </p>
-          <p><a href="https://github.com/edusamp3/Simulations" target="_blank" rel="noreferrer" data-en="Simulation code on GitHub" data-pt="Códigos das simulações no GitHub">Simulation code on GitHub</a></p>
-        </div>
+      {% include simulations.html %}
 
-        <figure class="simulation-player">
-          <video
-            id="simulation-video"
-            muted
-            autoplay
-            playsinline
-            preload="metadata"
-            poster="assets/snob-3d-poster.jpg"
-            aria-label="Stochastic process simulation"
-          ></video>
-          <figcaption class="simulation-meta">
-            <span id="simulation-name">Loading simulation…</span>
-            <span class="simulation-controls">
-              <button id="simulation-toggle" type="button" data-state="playing" data-en="Pause" data-pt="Pausar">Pause</button>
-              <span aria-hidden="true">·</span>
-              <button id="simulation-next" type="button" data-en="Next" data-pt="Próxima">Next</button>
-              <span id="simulation-count" aria-live="polite"></span>
-            </span>
-          </figcaption>
-        </figure>
-      </section>
-
-      <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" data-en="Contact" data-pt="Contato">Contact</h2>
-        <div class="section-body">
-          <p><a href="mailto:eduardo.sampaio@ufba.br">eduardo.sampaio@ufba.br</a></p>
-        </div>
-      </section>
+      {% include contact.html %}
     </main>
 
     <footer class="site-footer">
