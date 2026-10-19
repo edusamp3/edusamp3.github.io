@@ -459,4 +459,22 @@ h2 {
   a:focus-visible {
     color: var(--link-hover);
   }
+
+  .personal-quote {
+    margin: 2rem 0 0;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--link);
+    color: var(--muted);
+  }
+
+  .personal-quote p {
+    margin: 0 0 0.45rem;
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  .personal-quote cite {
+    font-size: 0.88rem;
+    font-style: normal;
+  }
 }
