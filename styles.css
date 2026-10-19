@@ -444,4 +444,19 @@ h2 {
   .simulation-player video {
     display: none;
   }
+
+  a,
+  a:visited,
+  a:hover,
+  a:focus,
+  a:focus-visible,
+  a:active {
+    text-decoration: none;
+  }
+
+  /* Muda somente a cor ao passar o mouse */
+  a:hover,
+  a:focus-visible {
+    color: var(--link-hover);
+  }
 }
