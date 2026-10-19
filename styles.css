@@ -429,22 +429,24 @@ h2 {
   }
 }
 
-@media print {
-  .site-header,
-  .simulation-controls,
-  .site-footer {
-    display: none;
-  }
+  @media print {
+    .site-header,
+    .simulation-controls,
+    .site-footer {
+      display: none;
+    }
 
-  .profile,
-  .content-section {
-    break-inside: avoid;
-  }
+    .profile,
+    .content-section {
+      break-inside: avoid;
+    }
 
-  .simulation-player video {
-    display: none;
-  }
+    .simulation-player video {
+      display: none;
+    }
+}
 
+  /* Todos os links sem sublinhado */
   a,
   a:visited,
   a:hover,
@@ -460,8 +462,9 @@ h2 {
     color: var(--link-hover);
   }
 
+  /* Citação pessoal */
   .personal-quote {
-    margin: 2rem 0 0;
+    margin: 2rem 0;
     padding-left: 1.25rem;
     border-left: 2px solid var(--link);
     color: var(--muted);
@@ -469,12 +472,11 @@ h2 {
 
   .personal-quote p {
     margin: 0 0 0.45rem;
-    font-style: italic;
     font-size: 1.05rem;
+    font-style: italic;
   }
 
   .personal-quote cite {
     font-size: 0.88rem;
     font-style: normal;
   }
-}
