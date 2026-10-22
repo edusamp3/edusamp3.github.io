@@ -605,3 +605,53 @@ h2 {
   padding-top: 0;
   border-top: 0;
 }
+
+
+/* Separate event photo gallery page */
+.event-entry .event-photos {
+  display: none !important;
+}
+
+.gallery-back-link {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.gallery-back-link a {
+  text-decoration: none;
+}
+
+.event-gallery-page h1 {
+  margin-bottom: 0.65rem;
+}
+
+.event-photo-status {
+  color: var(--muted);
+}
+
+.event-photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.event-photo-gallery a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--soft);
+}
+
+.event-photo-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 620px) {
+  .event-photo-gallery {
+    grid-template-columns: 1fr;
+  }
+}

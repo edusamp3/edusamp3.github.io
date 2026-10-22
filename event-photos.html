@@ -1,0 +1,52 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Photos from academic events attended by Eduardo Sampaio Pimenta." />
+    <meta name="author" content="Eduardo Sampaio Pimenta" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Event Photos — Eduardo Sampaio Pimenta</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>window.siteMedia = { photos: [], videos: [] };</script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-en="Skip to content" data-pt="Ir para o conteúdo">Skip to content</a>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="site-name" href="index.html">Eduardo Sampaio Pimenta</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" data-en="Home" data-pt="Início">Home</a>
+          <a href="index.html#research" data-en="Research" data-pt="Pesquisa">Research</a>
+          <a href="index.html#publications" data-en="Publications" data-pt="Publicações">Publications</a>
+          <a href="events.html#events" data-en="Events" data-pt="Eventos">Events</a>
+          <a href="events.html#simulations" data-en="Simulations" data-pt="Simulações">Simulations</a>
+        </nav>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-language="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-language="pt" aria-pressed="false">PT</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-width subpage-main">
+      <section class="event-gallery-page" aria-labelledby="event-photo-title">
+        <p class="gallery-back-link">
+          <a href="events.html#events" data-en="← Back to events" data-pt="← Voltar aos eventos">← Back to events</a>
+        </p>
+        <h1 id="event-photo-title" data-en="Event photos" data-pt="Fotos do evento">Event photos</h1>
+        <p id="event-photo-status" class="event-photo-status" data-en="Loading photos…" data-pt="Carregando fotos…">Loading photos…</p>
+        <div id="event-photo-gallery" class="event-photo-gallery" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-width"><p>© <span id="current-year"></span> Eduardo Sampaio Pimenta</p></div>
+    </footer>
+  </body>
+</html>

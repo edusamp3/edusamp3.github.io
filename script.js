@@ -148,60 +148,104 @@ document.getElementById("current-year").textContent = new Date().getFullYear();
 setLanguage(currentLanguage);
 
 
-// Automatic event photo galleries
-// Add images to assets/eventos using the event's photo_key as the prefix.
-// Example: clapem-2026-1.jpg, clapem-2026-2.jpg.
+// Automatic event photo links and separate gallery page
 (async () => {
-  const entries = [...document.querySelectorAll('[data-event-photo-key]')];
-  if (!entries.length) return;
-
+  const repositoryEndpoint =
+    'https://api.github.com/repos/edusamp3/edusamp3.github.io/contents/assets/eventos';
   const supportedExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
   const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9-]/g, '');
+  const matchesKey = (file, key) => {
+    const stem = normalize(file.name.replace(/\.[^.]+$/, ''));
+    return stem === key || stem.startsWith(`${key}-`);
+  };
 
+  let files;
   try {
-    const response = await fetch(
-      'https://api.github.com/repos/edusamp3/edusamp3.github.io/contents/assets/eventos',
-      { headers: { Accept: 'application/vnd.github+json' } }
-    );
-    if (!response.ok) return;
-
-    const files = (await response.json())
-      .filter((file) => file.type === 'file' && supportedExtensions.test(file.name));
-
-    entries.forEach((entry) => {
-      const key = normalize(entry.dataset.eventPhotoKey || '');
-      if (!key) return;
-
-      const matches = files
-        .filter((file) => {
-          const stem = normalize(file.name.replace(/\.[^.]+$/, ''));
-          return stem === key || stem.startsWith(`${key}-`);
-        })
-        .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
-
-      if (!matches.length) return;
-      const gallery = entry.querySelector('.event-photos');
-      if (!gallery) return;
-
-      matches.forEach((file, index) => {
-        const link = document.createElement('a');
-        link.href = file.download_url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-
-        const image = document.createElement('img');
-        image.src = file.download_url;
-        image.alt = `Event photo ${index + 1}`;
-        image.loading = 'lazy';
-        image.decoding = 'async';
-
-        link.appendChild(image);
-        gallery.appendChild(link);
-      });
-
-      gallery.hidden = false;
+    const response = await fetch(repositoryEndpoint, {
+      headers: { Accept: 'application/vnd.github+json' },
     });
+    if (!response.ok) return;
+    files = (await response.json())
+      .filter((file) => file.type === 'file' && supportedExtensions.test(file.name));
   } catch (error) {
     console.warn('Event photos could not be loaded.', error);
+    return;
   }
+
+  const entries = [...document.querySelectorAll('[data-event-photo-key]')];
+  entries.forEach((entry) => {
+    const key = normalize(entry.dataset.eventPhotoKey || '');
+    if (!key || !files.some((file) => matchesKey(file, key))) return;
+
+    let links = entry.querySelector('.event-links');
+    if (!links) {
+      links = document.createElement('p');
+      links.className = 'event-links';
+      entry.querySelector('.event-information')?.appendChild(links);
+    }
+
+    const eventName = entry.querySelector('.event-name')?.textContent.trim() || '';
+    const link = document.createElement('a');
+    const parameters = new URLSearchParams({ event: key, name: eventName });
+    link.href = `event-photos.html?${parameters.toString()}`;
+    link.dataset.en = 'Photos';
+    link.dataset.pt = 'Fotos';
+    link.textContent = document.documentElement.lang.startsWith('pt') ? 'Fotos' : 'Photos';
+    document.querySelectorAll('[data-language]').forEach((button) => {
+      button.addEventListener('click', () => {
+        link.textContent = button.dataset.language === 'pt' ? 'Fotos' : 'Photos';
+      });
+    });
+    links.appendChild(link);
+  });
+
+  const gallery = document.getElementById('event-photo-gallery');
+  if (!gallery) return;
+
+  const parameters = new URLSearchParams(window.location.search);
+  const key = normalize(parameters.get('event') || '');
+  const name = (parameters.get('name') || '').trim();
+  const title = document.getElementById('event-photo-title');
+  const status = document.getElementById('event-photo-status');
+
+  if (name && title) {
+    title.textContent = name;
+    title.dataset.en = name;
+    title.dataset.pt = name;
+    document.title = `${name} — Eduardo Sampaio Pimenta`;
+  }
+
+  const matches = key
+    ? files
+        .filter((file) => matchesKey(file, key))
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
+    : [];
+
+  if (!matches.length) {
+    if (status) {
+      status.dataset.en = 'No photos were found for this event.';
+      status.dataset.pt = 'Nenhuma foto foi encontrada para este evento.';
+      status.textContent = document.documentElement.lang.startsWith('pt')
+        ? status.dataset.pt
+        : status.dataset.en;
+    }
+    return;
+  }
+
+  if (status) status.remove();
+  matches.forEach((file, index) => {
+    const link = document.createElement('a');
+    link.href = file.download_url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+
+    const image = document.createElement('img');
+    image.src = file.download_url;
+    image.alt = `${name || 'Event'} — photo ${index + 1}`;
+    image.loading = index < 2 ? 'eager' : 'lazy';
+    image.decoding = 'async';
+
+    link.appendChild(image);
+    gallery.appendChild(link);
+  });
 })();
