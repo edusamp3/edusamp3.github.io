@@ -146,3 +146,62 @@ languageButtons.forEach((button) => {
 
 document.getElementById("current-year").textContent = new Date().getFullYear();
 setLanguage(currentLanguage);
+
+
+// Automatic event photo galleries
+// Add images to assets/eventos using the event's photo_key as the prefix.
+// Example: clapem-2026-1.jpg, clapem-2026-2.jpg.
+(async () => {
+  const entries = [...document.querySelectorAll('[data-event-photo-key]')];
+  if (!entries.length) return;
+
+  const supportedExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
+  const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9-]/g, '');
+
+  try {
+    const response = await fetch(
+      'https://api.github.com/repos/edusamp3/edusamp3.github.io/contents/assets/eventos',
+      { headers: { Accept: 'application/vnd.github+json' } }
+    );
+    if (!response.ok) return;
+
+    const files = (await response.json())
+      .filter((file) => file.type === 'file' && supportedExtensions.test(file.name));
+
+    entries.forEach((entry) => {
+      const key = normalize(entry.dataset.eventPhotoKey || '');
+      if (!key) return;
+
+      const matches = files
+        .filter((file) => {
+          const stem = normalize(file.name.replace(/\.[^.]+$/, ''));
+          return stem === key || stem.startsWith(`${key}-`);
+        })
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+
+      if (!matches.length) return;
+      const gallery = entry.querySelector('.event-photos');
+      if (!gallery) return;
+
+      matches.forEach((file, index) => {
+        const link = document.createElement('a');
+        link.href = file.download_url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+
+        const image = document.createElement('img');
+        image.src = file.download_url;
+        image.alt = `Event photo ${index + 1}`;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+
+        link.appendChild(image);
+        gallery.appendChild(link);
+      });
+
+      gallery.hidden = false;
+    });
+  } catch (error) {
+    console.warn('Event photos could not be loaded.', error);
+  }
+})();

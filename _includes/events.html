@@ -1,0 +1,25 @@
+<section class="content-section" id="events" aria-labelledby="events-title">
+  <h2 id="events-title" data-en="Events" data-pt="Eventos">Events</h2>
+
+  <div class="section-body events-body">
+    {% assign upcoming_events = site.data.events | where: "status", "upcoming" %}
+    {% if upcoming_events.size > 0 %}
+      <h3 class="events-group-title" data-en="Upcoming" data-pt="Próximos">Upcoming</h3>
+      <ol class="event-list">
+        {% for event in upcoming_events %}
+          {% include event-entry.html event=event %}
+        {% endfor %}
+      </ol>
+    {% endif %}
+
+    {% assign past_events = site.data.events | where: "status", "past" %}
+    {% if past_events.size > 0 %}
+      <h3 class="events-group-title" data-en="Past events" data-pt="Eventos anteriores">Past events</h3>
+      <ol class="event-list">
+        {% for event in past_events %}
+          {% include event-entry.html event=event %}
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </div>
+</section>

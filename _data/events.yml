@@ -1,0 +1,186 @@
+# Para adicionar outro evento, copie uma entrada e altere os campos.
+# photo_key liga o evento às fotos em assets/eventos/. Exemplo:
+# clapem-2026-1.jpg, clapem-2026-2.jpg. Não é preciso editar o HTML.
+# Deixe um endereço vazio ("") quando não existir página, programação ou galeria externa.
+
+- year: 2026
+  status: upcoming
+  photo_key: "epgmat-ufba-2026"
+  name: "XI Encontro da Pós-Graduação em Matemática da UFBA"
+  location_en: "IME-UFBA, Salvador, Brazil — November 11–13, 2026"
+  location_pt: "IME-UFBA, Salvador, Brasil — 11 a 13 de novembro de 2026"
+  role_en: "Invited talk"
+  role_pt: "Palestra convidada"
+  title: "Uma barreira no caminho: passeios aleatórios e membranas"
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2026
+  status: past
+  photo_key: "sdre-berlin-2026"
+  name: "Spreading Dynamics in Random Environments"
+  location_en: "WIAS, Berlin, Germany"
+  location_pt: "WIAS, Berlim, Alemanha"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: "https://www.wias-berlin.de/workshops/SDRE26/"
+  program_url: "https://www.wias-berlin.de/workshops/SDRE26/"
+  photos_url: ""
+
+- year: 2026
+  status: past
+  photo_key: "clapem-2026"
+  name: "XVII CLAPEM"
+  location_en: "Montevideo, Uruguay"
+  location_pt: "Montevidéu, Uruguai"
+  role_en: "Contributed talk"
+  role_pt: "Comunicação oral"
+  title: "Scaling Limit of Boundary Random Walks: A Martingale Problem Approach"
+  event_url: "https://clapem17.cmat.edu.uy/"
+  program_url: "https://clapem17.cmat.edu.uy/contributed-sessions"
+  photos_url: "https://clapem17.cmat.edu.uy/"
+
+- year: 2025
+  status: past
+  photo_key: "ihes-2025"
+  name: "2025 IHES Summer School — Statistical Aspects of Nonlinear Physics"
+  location_en: "IHES, Bures-sur-Yvette, France"
+  location_pt: "IHES, Bures-sur-Yvette, França"
+  role_en: "Short talk"
+  role_pt: "Comunicação curta"
+  title: "A Functional Central Limit Theorem and Weak Berry–Esseen Estimates for Non-Homogeneous Random Walks"
+  event_url: "https://www.ihes.fr/en/2025-ihes-summer-school-statistical-aspects-of-nonlinear-physics/"
+  program_url: "https://indico.math.cnrs.fr/event/12319/timetable/"
+  photos_url: ""
+
+- year: 2025
+  status: past
+  photo_key: "ebp-2025"
+  name: "XXVIII Brazilian School of Probability"
+  location_en: "UFMG, Belo Horizonte, Brazil"
+  location_pt: "UFMG, Belo Horizonte, Brasil"
+  role_en: "Presentation"
+  role_pt: "Apresentação"
+  title: "Functional Central Limit Theorem for the General Brownian Motion on the Half-Line"
+  event_url: "https://sites.google.com/view/ebp2025"
+  program_url: ""
+  photos_url: ""
+
+- year: 2024
+  status: past
+  photo_key: "combinatoria-2024"
+  name: "1st Brazilian Workshop on Combinatorics"
+  location_en: "Brazil"
+  location_pt: "Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2024
+  status: past
+  photo_key: "epgmat-ufba-2024"
+  name: "IX Encontro da Pós-Graduação em Matemática da UFBA"
+  location_en: "UFBA, Salvador, Brazil"
+  location_pt: "UFBA, Salvador, Brasil"
+  role_en: "Talk"
+  role_pt: "Palestra"
+  title: "Functional CLT for the General Brownian Motion on the Half-Line"
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2024
+  status: past
+  photo_key: "cbjme-2024"
+  name: "V CBJME"
+  location_en: "Brazil"
+  location_pt: "Brasil"
+  role_en: "Talk"
+  role_pt: "Palestra"
+  title: "Functional CLT for the General Brownian Motion on the Half-Line"
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2024
+  status: past
+  photo_key: "ebp-2024"
+  name: "XXVII Brazilian School of Probability"
+  location_en: "Salvador, Brazil"
+  location_pt: "Salvador, Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: "https://ebp.ufba.br/informations.html"
+  program_url: ""
+  photos_url: ""
+
+- year: 2023
+  status: past
+  photo_key: "epgmat-ufba-2023"
+  name: "VIII Encontro da Pós-Graduação em Matemática da UFBA"
+  location_en: "UFBA, Salvador, Brazil"
+  location_pt: "UFBA, Salvador, Brasil"
+  role_en: "Talk"
+  role_pt: "Palestra"
+  title: "Berry–Esseen Estimates Based on Generators with Applications"
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2022
+  status: past
+  photo_key: "spas-2022"
+  name: "São Paulo School of Advanced Science on Singular Stochastic Partial Differential Equations and Their Applications"
+  location_en: "UNICAMP, Campinas, Brazil"
+  location_pt: "UNICAMP, Campinas, Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: "https://www.ime.unicamp.br/spas2022/"
+  program_url: "https://www.ime.unicamp.br/spas2022/"
+  photos_url: "https://www.ime.unicamp.br/spas2022/"
+
+- year: 2022
+  status: past
+  photo_key: "ebp-2022"
+  name: "XXV Brazilian School of Probability"
+  location_en: "Brazil"
+  location_pt: "Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2019
+  status: past
+  photo_key: "epgmat-ufba-2019"
+  name: "VII Encontro da Pós-Graduação em Matemática da UFBA"
+  location_en: "UFBA, Salvador, Brazil"
+  location_pt: "UFBA, Salvador, Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: ""
+  program_url: ""
+  photos_url: ""
+
+- year: 2016
+  status: past
+  photo_key: "de-bruijn-2016"
+  name: "Conferência: A Mágica Sequência de de Bruijn"
+  location_en: "Brazil"
+  location_pt: "Brasil"
+  role_en: "Participant"
+  role_pt: "Participante"
+  title: ""
+  event_url: ""
+  program_url: ""
+  photos_url: ""

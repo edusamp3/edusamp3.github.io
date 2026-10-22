@@ -1,0 +1,12 @@
+COMO ADICIONAR FOTOS AOS EVENTOS
+
+Coloque as imagens nesta pasta. O começo do nome deve ser igual ao photo_key
+do evento em _data/events.yml. Use -1, -2, -3 etc. para várias fotos.
+
+Exemplo para o evento cujo photo_key é "clapem-2026":
+  clapem-2026-1.jpg
+  clapem-2026-2.jpg
+  clapem-2026-3.webp
+
+Formatos aceitos: JPG, JPEG, PNG, WEBP, GIF e AVIF.
+Depois, faça commit e Push origin normalmente. Não é preciso editar o HTML.
