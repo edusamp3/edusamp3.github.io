@@ -593,3 +593,15 @@ h2 {
     gap: 0.25rem;
   }
 }
+
+
+/* Separate simulations and events pages */
+.subpage-main {
+  min-height: calc(100vh - 10rem);
+  padding-block: clamp(2.75rem, 7vw, 5rem);
+}
+
+.subpage-main .content-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}

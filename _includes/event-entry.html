@@ -8,11 +8,10 @@
     <p class="event-role">
       <span data-en="{{ include.event.role_en }}" data-pt="{{ include.event.role_pt }}">{{ include.event.role_en }}</span>{% if include.event.title != "" %}: <em>{{ include.event.title }}</em>{% endif %}.
     </p>
-    {% if include.event.event_url != "" or include.event.program_url != "" or include.event.photos_url != "" %}
+    {% if include.event.event_url != "" or include.event.program_url != "" %}
       <p class="event-links">
         {% if include.event.event_url != "" %}<a href="{{ include.event.event_url }}" target="_blank" rel="noopener noreferrer" data-en="Event page" data-pt="Página do evento">Event page</a>{% endif %}
         {% if include.event.program_url != "" %}<a href="{{ include.event.program_url }}" target="_blank" rel="noopener noreferrer" data-en="Program" data-pt="Programação">Program</a>{% endif %}
-        {% if include.event.photos_url != "" %}<a href="{{ include.event.photos_url }}" target="_blank" rel="noopener noreferrer" data-en="Photos" data-pt="Fotos">Photos</a>{% endif %}
       </p>
     {% endif %}
     <div class="event-photos" hidden aria-label="Event photos"></div>
