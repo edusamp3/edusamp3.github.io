@@ -10,9 +10,16 @@ Personal content is stored in `_data`. In normal use, you do not need to edit HT
 - `simulations.yml`: simulation text, repository and poster.
 - `events.yml`: events, presentations and photo identifiers.
 - `contact.yml`: public email address.
+- `languages.yml`: available languages and default language.
+- `navigation.yml`: menu links and their translations.
+- `ui.yml`: short interface labels used throughout the site.
 - `theme.yml`: light/dark colors and automatic switching hours.
 
-Bilingual fields end in `_en` and `_pt`, or use `en` and `pt`. Always update both versions. Preserve YAML indentation and keep text containing punctuation inside quotation marks.
+Translated fields use language codes such as `_en`, `_pt`, `_es`, or nested `en`, `pt`, `es` values. Add a translation for every language listed in `languages.yml`. Missing translations fall back to the default language. Preserve YAML indentation and keep text containing punctuation inside quotation marks.
+
+## Adding another language
+
+Copy one language block in `_data/languages.yml`, choose its code and then add that code to translated fields in the other `_data` files. Menu buttons are generated automatically; no JavaScript editing is required.
 
 ## Personal photos
 

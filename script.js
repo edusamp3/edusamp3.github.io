@@ -1,10 +1,16 @@
-const languages = ["en", "pt"];
+const languageConfiguration = window.siteLanguages || {
+  default: "en",
+  available: [{ code: "en", html_lang: "en" }],
+};
+const languages = languageConfiguration.available.map((language) => language.code);
+const defaultLanguage = languages.includes(languageConfiguration.default)
+  ? languageConfiguration.default
+  : languages[0];
 const languageButtons = document.querySelectorAll("[data-language]");
-const translatableElements = document.querySelectorAll("[data-en][data-pt]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let currentLanguage = localStorage.getItem("esp-language");
-if (!languages.includes(currentLanguage)) currentLanguage = "en";
+if (!languages.includes(currentLanguage)) currentLanguage = defaultLanguage;
 
 function unique(items) {
   return [...new Set((items || []).filter(Boolean))];
@@ -40,12 +46,9 @@ let videoIndex = 0;
 function simulationToggleText() {
   if (!simulationToggle) return;
   const isPaused = simulationVideo?.paused ?? true;
-  const key = isPaused ? "Play" : "Pause";
-  const labels = {
-    Play: { en: "Play", pt: "Reproduzir" },
-    Pause: { en: "Pause", pt: "Pausar" },
-  };
-  simulationToggle.textContent = labels[key][currentLanguage];
+  const key = isPaused ? "play" : "pause";
+  const labels = window.siteUI?.labels?.[key] || {};
+  simulationToggle.textContent = labels[currentLanguage] || labels[defaultLanguage] || key;
   simulationToggle.dataset.state = isPaused ? "paused" : "playing";
 }
 
@@ -128,10 +131,14 @@ if (portraitLayers.length > 0 && photos.length > 0) {
 }
 
 function setLanguage(language) {
-  currentLanguage = languages.includes(language) ? language : "en";
-  document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
-  translatableElements.forEach((element) => {
-    element.textContent = element.dataset[currentLanguage];
+  currentLanguage = languages.includes(language) ? language : defaultLanguage;
+  const languageDetails = languageConfiguration.available.find(
+    (item) => item.code === currentLanguage,
+  );
+  document.documentElement.lang = languageDetails?.html_lang || currentLanguage;
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const translated = element.dataset[currentLanguage] ?? element.dataset[defaultLanguage];
+    if (translated !== undefined) element.textContent = translated;
   });
   languageButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.language === currentLanguage));
@@ -188,14 +195,12 @@ setLanguage(currentLanguage);
     const link = document.createElement('a');
     const parameters = new URLSearchParams({ event: key, name: eventName });
     link.href = `event-photos.html?${parameters.toString()}`;
-    link.dataset.en = 'Photos';
-    link.dataset.pt = 'Fotos';
-    link.textContent = document.documentElement.lang.startsWith('pt') ? 'Fotos' : 'Photos';
-    document.querySelectorAll('[data-language]').forEach((button) => {
-      button.addEventListener('click', () => {
-        link.textContent = button.dataset.language === 'pt' ? 'Fotos' : 'Photos';
-      });
+    link.dataset.i18n = '';
+    const photoLabels = window.siteUI?.labels?.photos || { en: 'Photos' };
+    languageConfiguration.available.forEach((language) => {
+      link.dataset[language.code] = photoLabels[language.code] || photoLabels[defaultLanguage];
     });
+    link.textContent = link.dataset[currentLanguage] || link.dataset[defaultLanguage];
     links.appendChild(link);
   });
 
@@ -225,9 +230,9 @@ setLanguage(currentLanguage);
     if (status) {
       status.dataset.en = 'No photos were found for this event.';
       status.dataset.pt = 'Nenhuma foto foi encontrada para este evento.';
-      status.textContent = document.documentElement.lang.startsWith('pt')
-        ? status.dataset.pt
-        : status.dataset.en;
+      status.dataset.es = 'No se encontraron fotos para este evento.';
+      status.dataset.i18n = '';
+      status.textContent = status.dataset[currentLanguage] || status.dataset[defaultLanguage];
     }
     return;
   }

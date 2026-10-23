@@ -1,0 +1,40 @@
+# HOW TO USE
+# Each block is one navigation link. Edit href to change its destination.
+# labels must contain one entry for every language in languages.yml.
+# Copy a complete block to add another menu item.
+
+- href: "index.html#about"
+  labels:
+    en: "About"
+    pt: "Sobre"
+    es: "Sobre mí"
+- href: "index.html#research"
+  labels:
+    en: "Research"
+    pt: "Pesquisa"
+    es: "Investigación"
+- href: "index.html#education"
+  labels:
+    en: "Education"
+    pt: "Formação"
+    es: "Formación"
+- href: "index.html#research-affiliations"
+  labels:
+    en: "Affiliations"
+    pt: "Afiliações"
+    es: "Afiliaciones"
+- href: "index.html#publications"
+  labels:
+    en: "Publications"
+    pt: "Publicações"
+    es: "Publicaciones"
+- href: "events.html#events"
+  labels:
+    en: "Events"
+    pt: "Eventos"
+    es: "Eventos"
+- href: "events.html#simulations"
+  labels:
+    en: "Simulations"
+    pt: "Simulações"
+    es: "Simulaciones"

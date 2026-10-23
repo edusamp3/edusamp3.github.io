@@ -1,0 +1,17 @@
+# HOW TO USE
+# default is the language used on a visitor's first access.
+# To add another language, copy one complete block and choose a short code.
+# Then add that code to every translated field in the other _data files.
+# Missing translations automatically fall back to the default language.
+
+default: "en"
+available:
+  - code: "en"
+    label: "EN"
+    html_lang: "en"
+  - code: "pt"
+    label: "PT"
+    html_lang: "pt-BR"
+  - code: "es"
+    label: "ES"
+    html_lang: "es"

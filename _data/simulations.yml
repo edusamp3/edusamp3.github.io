@@ -6,7 +6,9 @@
 
 description_en: "A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened."
 description_pt: "Uma seleção rotativa de experimentos numéricos relacionados à minha pesquisa. A ordem muda sempre que a página é aberta."
+description_es: "Una selección rotativa de experimentos numéricos relacionados con mi investigación. El orden cambia cada vez que se abre la página."
 repository_label_en: "Simulation code on GitHub"
 repository_label_pt: "Códigos das simulações no GitHub"
+repository_label_es: "Código de las simulaciones en GitHub"
 repository_url: "https://github.com/edusamp3/Simulations"
 poster: "assets/snob-3d-poster.jpg"

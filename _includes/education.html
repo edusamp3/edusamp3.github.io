@@ -1,9 +1,5 @@
-<!-- TEMPLATE: Edit education and experience in _data/education.yml. -->
+<!-- TEMPLATE: Edit education, experience and translations in _data/education.yml. -->
 <section class="content-section" id="education" aria-labelledby="education-title">
-  <h2 id="education-title" data-en="Education and experience" data-pt="Formação e experiência">Education and experience</h2>
-  <div class="section-body"><ul class="plain-list education-list">
-    {% for item in site.data.education %}
-      <li><strong data-en="{{ item.title_en | escape }}" data-pt="{{ item.title_pt | escape }}">{{ item.title_en }}</strong>, <span data-en="{{ item.institution_en | escape }}" data-pt="{{ item.institution_pt | escape }}">{{ item.institution_en }}</span> <span class="education-period">({{ item.period }})</span>.</li>
-    {% endfor %}
-  </ul></div>
+  <h2 id="education-title" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ site.data.ui.sections.education[language.code] | default: site.data.ui.sections.education[site.data.languages.default] | escape }}"{% endfor %}>{{ site.data.ui.sections.education[site.data.languages.default] }}</h2>
+  <div class="section-body"><ul class="plain-list education-list">{% for item in site.data.education %}<li><strong data-i18n{% for language in site.data.languages.available %}{% capture key %}title_{{ language.code }}{% endcapture %} data-{{ language.code }}="{{ item[key] | default: item.title_en | escape }}"{% endfor %}>{{ item.title_en }}</strong>, <span data-i18n{% for language in site.data.languages.available %}{% capture key %}institution_{{ language.code }}{% endcapture %} data-{{ language.code }}="{{ item[key] | default: item.institution_en | escape }}"{% endfor %}>{{ item.institution_en }}</span> <span class="education-period">({{ item.period }})</span>.</li>{% endfor %}</ul></div>
 </section>

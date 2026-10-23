@@ -6,15 +6,21 @@
 
 intro_en: "My main interests are in probability theory and stochastic processes, especially the following topics:"
 intro_pt: "Meus principais interesses estão em teoria da probabilidade e processos estocásticos, especialmente nos seguintes temas:"
+intro_es: "Mis principales intereses se encuentran en la teoría de la probabilidad y los procesos estocásticos, especialmente en los siguientes temas:"
 
 topics:
   - en: "scaling limits and invariance principles;"
     pt: "limites de escala e princípios de invariância;"
+    es: "límites de escala y principios de invariancia;"
   - en: "random walks with boundary mechanisms;"
     pt: "passeios aleatórios com mecanismos de fronteira;"
+    es: "paseos aleatorios con mecanismos de frontera;"
   - en: "Feller processes and generator methods;"
     pt: "processos de Feller e métodos baseados em geradores;"
+    es: "procesos de Feller y métodos basados en generadores;"
   - en: "dynamic percolation and evolving random environments;"
     pt: "percolação dinâmica e ambientes aleatórios em evolução;"
+    es: "percolación dinámica y entornos aleatorios en evolución;"
   - en: "limit theorems."
     pt: "teoremas de limite."
+    es: "teoremas límite."

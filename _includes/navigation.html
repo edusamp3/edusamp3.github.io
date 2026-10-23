@@ -1,0 +1,6 @@
+<!-- GENERATED MENU: Edit links and translations in _data/navigation.yml. -->
+<nav class="site-nav" aria-label="Primary navigation">
+  {% for item in site.data.navigation %}
+    <a href="{{ item.href }}" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ item.labels[language.code] | default: item.labels[site.data.languages.default] | escape }}"{% endfor %}>{{ item.labels[site.data.languages.default] }}</a>
+  {% endfor %}
+</nav>

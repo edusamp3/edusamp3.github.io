@@ -1,0 +1,23 @@
+# HOW TO USE
+# These are short interface labels used by templates and JavaScript.
+# Add a translation for every language listed in languages.yml.
+
+sections:
+  research: { en: "Research", pt: "Pesquisa", es: "Investigación" }
+  education: { en: "Education and experience", pt: "Formação e experiência", es: "Formación y experiencia" }
+  affiliations: { en: "Research affiliations", pt: "Afiliações de pesquisa", es: "Afiliaciones de investigación" }
+  publications: { en: "Publications and preprints", pt: "Publicações e preprints", es: "Publicaciones y preprints" }
+  simulations: { en: "Simulations", pt: "Simulações", es: "Simulaciones" }
+  contact: { en: "Contact", pt: "Contato", es: "Contacto" }
+  events: { en: "Events", pt: "Eventos", es: "Eventos" }
+  upcoming: { en: "Upcoming", pt: "Próximos", es: "Próximos" }
+  past_events: { en: "Past events", pt: "Eventos anteriores", es: "Eventos anteriores" }
+labels:
+  skip: { en: "Skip to content", pt: "Ir para o conteúdo", es: "Ir al contenido" }
+  records: { en: "Complete and current records:", pt: "Registros completos e atualizados:", es: "Registros completos y actualizados:" }
+  pause: { en: "Pause", pt: "Pausar", es: "Pausar" }
+  play: { en: "Play", pt: "Reproduzir", es: "Reproducir" }
+  next: { en: "Next", pt: "Próxima", es: "Siguiente" }
+  photos: { en: "Photos", pt: "Fotos", es: "Fotos" }
+  event_page: { en: "Event page", pt: "Página do evento", es: "Página del evento" }
+  program: { en: "Program", pt: "Programação", es: "Programa" }

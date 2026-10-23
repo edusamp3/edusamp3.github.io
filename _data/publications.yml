@@ -16,6 +16,7 @@
       self: true
   note_en: "Accepted, forthcoming in Bernoulli."
   note_pt: "Aceito para publicação na revista Bernoulli."
+  note_es: "Aceptado para publicación en la revista Bernoulli."
   link_label: "Journal page"
   link_url: "https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers"
 
@@ -28,5 +29,6 @@
       self: true
   note_en: "Preprint, submitted to ALEA, 2025."
   note_pt: "Preprint, submetido à ALEA, 2025."
+  note_es: "Preprint, enviado a ALEA, 2025."
   link_label: "arXiv"
   link_url: "https://arxiv.org/abs/2507.10528"

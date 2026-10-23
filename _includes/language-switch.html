@@ -1,0 +1,6 @@
+<!-- GENERATED SWITCH: Add or remove languages in _data/languages.yml. -->
+<div class="language-switch" aria-label="Language">
+  {% for language in site.data.languages.available %}
+    <button type="button" data-language="{{ language.code }}" aria-pressed="{% if language.code == site.data.languages.default %}true{% else %}false{% endif %}">{{ language.label }}</button>{% unless forloop.last %}<span aria-hidden="true">/</span>{% endunless %}
+  {% endfor %}
+</div>

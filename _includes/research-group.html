@@ -1,9 +1,5 @@
-<!-- TEMPLATE: Edit groups and affiliations in _data/affiliations.yml. -->
+<!-- TEMPLATE: Edit groups, affiliations and translations in _data/affiliations.yml. -->
 <section class="content-section" id="research-affiliations" aria-labelledby="research-affiliations-title">
-  <h2 id="research-affiliations-title" data-en="Research affiliations" data-pt="Afiliações de pesquisa">Research affiliations</h2>
-  <div class="section-body"><ul class="plain-list">
-    {% for group in site.data.affiliations %}
-      <li><a href="{{ group.url }}" target="_blank" rel="noopener noreferrer"><strong>{{ group.name }}</strong></a><span data-en=" — {{ group.description_en | escape }}" data-pt=" — {{ group.description_pt | escape }}"> — {{ group.description_en }}</span></li>
-    {% endfor %}
-  </ul></div>
+  <h2 id="research-affiliations-title" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ site.data.ui.sections.affiliations[language.code] | default: site.data.ui.sections.affiliations[site.data.languages.default] | escape }}"{% endfor %}>{{ site.data.ui.sections.affiliations[site.data.languages.default] }}</h2>
+  <div class="section-body"><ul class="plain-list">{% for group in site.data.affiliations %}<li><a href="{{ group.url }}" target="_blank" rel="noopener noreferrer"><strong>{{ group.name }}</strong></a><span data-i18n{% for language in site.data.languages.available %}{% capture key %}description_{{ language.code }}{% endcapture %} data-{{ language.code }}=" — {{ group[key] | default: group.description_en | escape }}"{% endfor %}> — {{ group.description_en }}</span></li>{% endfor %}</ul></div>
 </section>

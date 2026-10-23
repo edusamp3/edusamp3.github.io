@@ -1,10 +1,8 @@
-<!-- TEMPLATE: Edit research content in _data/research.yml, not in this file. -->
+<!-- TEMPLATE: Edit research content and translations in _data/research.yml. -->
 <section class="content-section" id="research" aria-labelledby="research-title">
-  <h2 id="research-title" data-en="Research" data-pt="Pesquisa">Research</h2>
+  <h2 id="research-title" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ site.data.ui.sections.research[language.code] | default: site.data.ui.sections.research[site.data.languages.default] | escape }}"{% endfor %}>{{ site.data.ui.sections.research[site.data.languages.default] }}</h2>
   <div class="section-body">
-    <p data-en="{{ site.data.research.intro_en | escape }}" data-pt="{{ site.data.research.intro_pt | escape }}">{{ site.data.research.intro_en }}</p>
-    <ul class="plain-list">
-      {% for topic in site.data.research.topics %}<li data-en="{{ topic.en | escape }}" data-pt="{{ topic.pt | escape }}">{{ topic.en }}</li>{% endfor %}
-    </ul>
+    <p data-i18n{% for language in site.data.languages.available %}{% capture key %}intro_{{ language.code }}{% endcapture %} data-{{ language.code }}="{{ site.data.research[key] | default: site.data.research.intro_en | escape }}"{% endfor %}>{{ site.data.research.intro_en }}</p>
+    <ul class="plain-list">{% for topic in site.data.research.topics %}<li data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ topic[language.code] | default: topic[site.data.languages.default] | escape }}"{% endfor %}>{{ topic[site.data.languages.default] }}</li>{% endfor %}</ul>
   </div>
 </section>
