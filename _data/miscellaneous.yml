@@ -16,9 +16,15 @@ about_title:
   es: "Sobre mí"
 
 about:
-  en: "This is a space for interests, projects and other things beyond my formal academic work."
-  pt: "Este é um espaço para interesses, projetos e outras coisas além do meu trabalho acadêmico formal."
-  es: "Este es un espacio para intereses, proyectos y otras cosas más allá de mi trabajo académico formal."
+  en: >-
+    Outside mathematics, I enjoy rock music, playing bass guitar
+    and watching anime.
+  pt: >-
+    Fora da matemática, gosto de rock, de tocar baixo
+    e de assistir animes.
+  es: >-
+    Fuera de las matemáticas, me gusta el rock, tocar el bajo
+    y ver anime.
 
 items: []
 
