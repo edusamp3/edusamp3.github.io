@@ -40,3 +40,7 @@ Edit `_data/theme.yml`. Set `mode` to `auto`, `light` or `dark`. Auto mode uses 
 ## Templates
 
 Files in `_includes` control layout. Each template begins with a comment pointing to the corresponding `_data` file. Edit templates only when changing structure rather than content.
+
+## Layout and typography
+
+Edit `_data/design.yml` to change text alignment, fonts, font sizes, page width, content width, profile photo dimensions, spacing, media proportions, borders, rounded corners, gallery columns and header behavior. Keep CSS units such as `px` and `rem` in size values. The default `text_align` is `left`; use `justify` only if desired.

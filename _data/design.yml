@@ -1,0 +1,56 @@
+# HOW TO USE
+# This file controls layout and typography without requiring CSS editing.
+# Keep measurement units such as px, rem, vw or % in every size value.
+# Keep font stacks and values containing spaces inside quotation marks.
+# After editing, commit and push; no installer needs to be run again.
+
+typography:
+  # Common values: left, justify, center.
+  text_align: "left"
+  body_font: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
+  heading_font: 'Georgia, "Times New Roman", serif'
+  base_font_size: "16px"
+  line_height: "1.65"
+  heading_weight: "600"
+  name_size_min: "1.85rem"
+  name_size_max: "2.35rem"
+  section_title_size: "1.25rem"
+  link_decoration: "none"
+
+layout:
+  page_width: "960px"
+  text_width: "650px"
+  sidebar_width: "220px"
+  profile_gap: "4.75rem"
+  section_gap: "4.75rem"
+  profile_padding: "5.5rem"
+  section_padding: "2.5rem"
+  mobile_breakpoint: "620px"
+
+photos:
+  profile_aspect_ratio: "3 / 4"
+  profile_fit: "contain"
+  profile_position: "center"
+  profile_radius: "0px"
+  mobile_width: "220px"
+  transition_time: "700ms"
+
+media:
+  simulation_aspect_ratio: "16 / 10"
+  simulation_max_height: "430px"
+  media_radius: "4px"
+  event_gallery_columns: "2"
+  event_gallery_gap: "1rem"
+
+sections:
+  # Use solid, dashed, dotted or none.
+  separator_style: "solid"
+  separator_width: "1px"
+  quote_border_width: "2px"
+  quote_indent: "1.25rem"
+
+header:
+  # Use static or sticky. Sticky keeps the menu visible while scrolling.
+  position: "static"
+  top: "0"
+  z_index: "20"
