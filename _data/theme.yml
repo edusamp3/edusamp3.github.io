@@ -1,0 +1,33 @@
+# HOW TO USE
+# Set mode to "auto", "light" or "dark".
+# In auto mode, the visitor's local time selects the theme.
+# light_start and dark_start use the 24-hour clock.
+# Change the hexadecimal colors below to customize both palettes.
+# Keep color values inside quotation marks.
+
+# Available modes: auto, light or dark.
+mode: "auto"
+
+# Auto mode uses the visitor's local time.
+light_start: 7
+dark_start: 19
+
+light:
+  paper: "#faf8f2"
+  ink: "#252525"
+  muted: "#686868"
+  line: "#dedbd2"
+  link: "#315f73"
+  link_hover: "#173b4b"
+  soft: "#f0eee7"
+  header: "rgba(255, 255, 255, 0.96)"
+
+dark:
+  paper: "#17191a"
+  ink: "#ece9e1"
+  muted: "#aaa79f"
+  line: "#343738"
+  link: "#86b8c7"
+  link_hover: "#b8dce6"
+  soft: "#222526"
+  header: "rgba(23, 25, 26, 0.96)"

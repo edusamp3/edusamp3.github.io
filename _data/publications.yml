@@ -1,0 +1,32 @@
+# HOW TO USE
+# Each top-level block is one publication or preprint.
+# Copy a complete publication block to add a new work.
+# An author URL is optional. Use `self: true` to highlight the site owner's name.
+# Keep note_en and note_pt synchronized and preserve the indentation.
+
+- title: "A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line"
+  authors:
+    - name: "D. Erhard"
+      url: "http://lattes.cnpq.br/4167887647318550"
+    - name: "T. Franco"
+      url: "https://tertu.xyz/"
+    - name: "M. Jara"
+      url: "http://lattes.cnpq.br/7496571533341165"
+    - name: "E. Pimenta"
+      self: true
+  note_en: "Accepted, forthcoming in Bernoulli."
+  note_pt: "Aceito para publicação na revista Bernoulli."
+  link_label: "Journal page"
+  link_url: "https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers"
+
+- title: "Scaling Limit of Boundary Random Walks: A Martingale Problem Approach"
+  authors:
+    - name: "J. C. Arroyave"
+    - name: "E. Barros"
+      url: "https://sites.google.com/view/eldon-barros"
+    - name: "E. Pimenta"
+      self: true
+  note_en: "Preprint, submitted to ALEA, 2025."
+  note_pt: "Preprint, submetido à ALEA, 2025."
+  link_label: "arXiv"
+  link_url: "https://arxiv.org/abs/2507.10528"

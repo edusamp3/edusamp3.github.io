@@ -20,6 +20,7 @@
     <title>Eduardo Sampaio Pimenta</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
 
     <script>
       /*
@@ -72,6 +73,7 @@
         }
       })();
     </script>
+    <script src="theme.js"></script>
     <script src="script.js" defer></script>
   </head>
 
@@ -85,6 +87,7 @@
         <nav class="site-nav" aria-label="Primary navigation">
           <a href="#about" data-en="About" data-pt="Sobre">About</a>
           <a href="#research" data-en="Research" data-pt="Pesquisa">Research</a>
+          <a href="#education" data-en="Education" data-pt="Formação">Education</a>
           <a href="#research-affiliations" data-en="Affiliations" data-pt="Afiliações">Affiliations</a>
           <a href="#publications" data-en="Publications" data-pt="Publicações">Publications</a>
           <a href="events.html#events" data-en="Events" data-pt="Eventos">Events</a>
@@ -100,59 +103,11 @@
     </header>
 
     <main id="main-content" class="page-width">
-      <section class="profile" id="top" aria-labelledby="page-title">
-        <aside class="profile-sidebar">
-          <figure class="portrait" role="img" aria-label="Eduardo Sampaio Pimenta">
-            <img
-              class="portrait-layer is-active"
-              src="assets/fotos/01-eduardo-pimenta-retrato.jpg"
-              alt=""
-              aria-hidden="true"
-              decoding="async"
-            />
-            <img class="portrait-layer" alt="" aria-hidden="true" decoding="async" />
-          </figure>
-          <p class="photo-caption" data-en="Mathematician · Probability" data-pt="Matemático · Probabilidade">
-            Mathematician · Probability
-          </p>
-        </aside>
-
-        <div class="profile-copy" id="about">
-          <h1 id="page-title">Eduardo Sampaio Pimenta</h1>
-          <p class="role" data-en="Mathematician working in probability theory" data-pt="Matemático que trabalha com teoria da probabilidade">
-            Mathematician working in probability theory
-          </p>
-
-          <p
-            data-en="I am a Brazilian mathematician interested in stochastic processes, scaling limits and random walks. I completed my PhD in Mathematics at the Federal University of Bahia (UFBA) in 2025 and most recently carried out postdoctoral research at the University of Augsburg. I have been a postdoctoral researcher at the Federal University of Minas Gerais (UFMG) since October 2026."
-            data-pt="Sou um matemático brasileiro interessado em processos estocásticos, limites de escala e passeios aleatórios. Concluí o doutorado em Matemática na Universidade Federal da Bahia (UFBA) em 2025 e, mais recentemente, realizei pesquisa de pós-doutorado na Universidade de Augsburg. Sou pesquisador de pós-doutorado na Universidade Federal de Minas Gerais (UFMG) desde outubro de 2026."
-          >
-            I am a Brazilian mathematician interested in stochastic processes, scaling limits and random walks. I completed my PhD in Mathematics at the Federal University of Bahia (UFBA) in 2025 and most recently carried out postdoctoral research at the University of Augsburg. I have been a postdoctoral researcher at the Federal University of Minas Gerais (UFMG) since October 2026.
-          </p>
-
-          <p
-            data-en="My work studies how discrete random systems converge to continuous processes and how boundary mechanisms affect their limiting behavior."
-            data-pt="Meu trabalho estuda como sistemas aleatórios discretos convergem para processos contínuos e como mecanismos de fronteira afetam seu comportamento limite."
-          >
-            My work studies how discrete random systems converge to continuous processes and how boundary mechanisms affect their limiting behavior.
-          </p>
-
-          <blockquote class="personal-quote">
-            <p>“Ever tried. Ever Failed. No matter. Try again. Fail again. Fail better.”</p>
-            <cite>— Samuel Beckett, <em>Worstward Ho</em></cite>
-          </blockquote>
-
-          <ul class="profile-links" aria-label="Academic profiles">
-            <li><a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes</a></li>
-            <li><a href="https://orcid.org/0009-0004-1060-2280" target="_blank" rel="noreferrer">ORCID</a></li>
-            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a></li>
-            <li><a href="cv/cv.pdf" target="_blank" rel="noreferrer">CV (PDF)</a></li>
-            <li><a href="mailto:sampaieduardo@gmail.com">Email</a></li>
-          </ul>
-        </div>
-      </section>
+      {% include profile.html %}
 
       {% include research.html %}
+
+      {% include education.html %}
 
       {% include research-group.html %}
 

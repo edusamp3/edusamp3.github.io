@@ -1,0 +1,20 @@
+# HOW TO USE
+# Edit the introductory paragraph and research topics in this file.
+# Each topic needs an English (en) and Portuguese (pt) version.
+# Copy one complete topic block to add another topic.
+# Keep the indentation exactly as shown.
+
+intro_en: "My main interests are in probability theory and stochastic processes, especially the following topics:"
+intro_pt: "Meus principais interesses estão em teoria da probabilidade e processos estocásticos, especialmente nos seguintes temas:"
+
+topics:
+  - en: "scaling limits and invariance principles;"
+    pt: "limites de escala e princípios de invariância;"
+  - en: "random walks with boundary mechanisms;"
+    pt: "passeios aleatórios com mecanismos de fronteira;"
+  - en: "Feller processes and generator methods;"
+    pt: "processos de Feller e métodos baseados em geradores;"
+  - en: "dynamic percolation and evolving random environments;"
+    pt: "percolação dinâmica e ambientes aleatórios em evolução;"
+  - en: "limit theorems."
+    pt: "teoremas de limite."

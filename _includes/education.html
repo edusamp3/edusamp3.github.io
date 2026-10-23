@@ -1,0 +1,9 @@
+<!-- TEMPLATE: Edit education and experience in _data/education.yml. -->
+<section class="content-section" id="education" aria-labelledby="education-title">
+  <h2 id="education-title" data-en="Education and experience" data-pt="Formação e experiência">Education and experience</h2>
+  <div class="section-body"><ul class="plain-list education-list">
+    {% for item in site.data.education %}
+      <li><strong data-en="{{ item.title_en | escape }}" data-pt="{{ item.title_pt | escape }}">{{ item.title_en }}</strong>, <span data-en="{{ item.institution_en | escape }}" data-pt="{{ item.institution_pt | escape }}">{{ item.institution_en }}</span> <span class="education-period">({{ item.period }})</span>.</li>
+    {% endfor %}
+  </ul></div>
+</section>

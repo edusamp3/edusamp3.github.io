@@ -1,0 +1,29 @@
+---
+---
+/* Generated from _data/theme.yml. Edit colors there, not in this file. */
+:root {
+  color-scheme: light;
+  --paper: {{ site.data.theme.light.paper }};
+  --ink: {{ site.data.theme.light.ink }};
+  --muted: {{ site.data.theme.light.muted }};
+  --line: {{ site.data.theme.light.line }};
+  --link: {{ site.data.theme.light.link }};
+  --link-hover: {{ site.data.theme.light.link_hover }};
+  --soft: {{ site.data.theme.light.soft }};
+  --site-header-background: {{ site.data.theme.light.header }};
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: {{ site.data.theme.dark.paper }};
+  --ink: {{ site.data.theme.dark.ink }};
+  --muted: {{ site.data.theme.dark.muted }};
+  --line: {{ site.data.theme.dark.line }};
+  --link: {{ site.data.theme.dark.link }};
+  --link-hover: {{ site.data.theme.dark.link_hover }};
+  --soft: {{ site.data.theme.dark.soft }};
+  --site-header-background: {{ site.data.theme.dark.header }};
+}
+
+.site-header { background: var(--site-header-background); }
+body, .site-header, a, button { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease; }

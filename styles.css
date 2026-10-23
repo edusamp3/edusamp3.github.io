@@ -79,7 +79,7 @@ a:focus-visible {
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--site-header-background, rgba(255, 255, 255, 0.96));
 }
 
 .header-inner {
@@ -655,3 +655,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Data-driven education */
+.education-period { color: var(--muted); white-space: nowrap; }

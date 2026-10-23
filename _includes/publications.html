@@ -1,68 +1,13 @@
+<!-- TEMPLATE: Edit publications in _data/publications.yml, not in this file. -->
 <section class="content-section" id="publications" aria-labelledby="publications-title">
   <h2 id="publications-title" data-en="Publications and preprints" data-pt="Publicações e preprints">Publications and preprints</h2>
-  <div class="section-body">
-    <ol class="publication-list">
+  <div class="section-body"><ol class="publication-list">
+    {% for publication in site.data.publications %}
       <li>
-        <p class="publication-title">A Functional Central Limit Theorem for the General Brownian Motion on the Half-Line</p>
-        <p>
-          <a href="http://lattes.cnpq.br/4167887647318550"
-            target="_blank"
-            rel="noopener noreferrer">D. Erhard</a>,
-
-          <a href="https://tertu.xyz/"
-            target="_blank"
-            rel="noopener noreferrer">T. Franco</a>,
-
-          <a href="http://lattes.cnpq.br/7496571533341165"
-            target="_blank"
-            rel="noopener noreferrer">M. Jara</a>,
-
-          and <strong>E. Pimenta</strong>.
-        </p>
-
-        <p class="publication-note">
-          <span
-            data-en="Accepted, forthcoming in "
-            data-pt="Aceito para publicação na revista "
-          >Accepted, forthcoming in </span><em>Bernoulli</em>.
-          
-          <a
-            href="https://www.bernoullisociety.org/index.php/publications/bernoulli-journal/bernoulli-journal-papers"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Journal page</a>
-        </p>
+        <p class="publication-title">{{ publication.title }}</p>
+        <p>{% for author in publication.authors %}{% if author.self %}<strong>{{ author.name }}</strong>{% elsif author.url %}<a href="{{ author.url }}" target="_blank" rel="noopener noreferrer">{{ author.name }}</a>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}{% if forloop.rindex == 2 %} and {% else %}, {% endif %}{% endunless %}{% endfor %}.</p>
+        <p class="publication-note"><span data-en="{{ publication.note_en | escape }}" data-pt="{{ publication.note_pt | escape }}">{{ publication.note_en }}</span> <a href="{{ publication.link_url }}" target="_blank" rel="noopener noreferrer">{{ publication.link_label }}</a></p>
       </li>
-      <li>
-        <p class="publication-title">Scaling Limit of Boundary Random Walks: A Martingale Problem Approach</p>
-        <p>
-          J. C. Arroyave,
-          <a href="https://sites.google.com/view/eldon-barros"
-            target="_blank"
-            rel="noopener noreferrer">E. Barros</a>
-          and <strong>E. Pimenta</strong>.
-        </p>
-        <p class="publication-note">
-          <span
-            data-en="Preprint, submitted to ALEA, 2025."
-            data-pt="Preprint, submetido à ALEA, 2025."
-          >Preprint, submitted to ALEA, 2025.</span>
-
-          <a href="https://arxiv.org/abs/2507.10528"
-            target="_blank"
-            rel="noopener noreferrer">arXiv</a>
-        </p>
-      </li>
-    </ol>
-    <p class="more-link">
-      <span data-en="Complete and current records:" data-pt="Registros completos e atualizados:">Complete and current records:</span>
-      <a href="https://lattes.cnpq.br/6512284414514021"
-         target="_blank"
-         rel="noopener noreferrer">Lattes</a>
-      <span aria-hidden="true">·</span>
-      <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ"
-        target="_blank"
-        rel="noopener noreferrer">Google Scholar</a>
-    </p>
-  </div>
+    {% endfor %}
+  </ol><p class="more-link"><span data-en="Complete and current records:" data-pt="Registros completos e atualizados:">Complete and current records:</span> <a href="https://lattes.cnpq.br/6512284414514021" target="_blank" rel="noreferrer">Lattes</a> <span aria-hidden="true">·</span> <a href="https://scholar.google.com/citations?hl=en&amp;user=SJJP-ngAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a></p></div>
 </section>

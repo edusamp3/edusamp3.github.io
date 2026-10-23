@@ -1,0 +1,34 @@
+# HOW TO USE
+# Edit your name, role, biography, quotation and academic links here.
+# Keep both English (_en) and Portuguese (_pt) versions up to date.
+# To add a biography paragraph or link, copy one complete list item and edit it.
+# Keep the indentation exactly as shown. Text containing ':' should stay quoted.
+
+name: "Eduardo Sampaio Pimenta"
+role_en: "Mathematician working in probability theory"
+role_pt: "Matemático que trabalha com teoria da probabilidade"
+photo_caption_en: "Mathematician · Probability"
+photo_caption_pt: "Matemático · Probabilidade"
+
+bio:
+  - en: "I am a Brazilian mathematician interested in stochastic processes, scaling limits and random walks. I completed my PhD in Mathematics at the Federal University of Bahia (UFBA) in 2025 and most recently carried out postdoctoral research at the University of Augsburg. I have been a postdoctoral researcher at the Federal University of Minas Gerais (UFMG) since October 2026."
+    pt: "Sou um matemático brasileiro interessado em processos estocásticos, limites de escala e passeios aleatórios. Concluí o doutorado em Matemática na Universidade Federal da Bahia (UFBA) em 2025 e, mais recentemente, realizei pesquisa de pós-doutorado na Universidade de Augsburg. Sou pesquisador de pós-doutorado na Universidade Federal de Minas Gerais (UFMG) desde outubro de 2026."
+  - en: "My work studies how discrete random systems converge to continuous processes and how boundary mechanisms affect their limiting behavior."
+    pt: "Meu trabalho estuda como sistemas aleatórios discretos convergem para processos contínuos e como mecanismos de fronteira afetam seu comportamento limite."
+
+quote:
+  text: "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better."
+  author: "Samuel Beckett"
+  source: "Worstward Ho"
+
+links:
+  - label: "Lattes"
+    url: "https://lattes.cnpq.br/6512284414514021"
+  - label: "ORCID"
+    url: "https://orcid.org/0009-0004-1060-2280"
+  - label: "Google Scholar"
+    url: "https://scholar.google.com/citations?hl=en&user=SJJP-ngAAAAJ"
+  - label: "CV (PDF)"
+    url: "cv/cv.pdf"
+  - label: "Email"
+    url: "mailto:sampaieduardo@gmail.com"

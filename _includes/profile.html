@@ -1,0 +1,26 @@
+<!-- TEMPLATE: Edit personal content in _data/profile.yml, not in this file. -->
+<section class="profile" id="top" aria-labelledby="page-title">
+  <aside class="profile-sidebar">
+    <figure class="portrait" role="img" aria-label="{{ site.data.profile.name }}">
+      <img class="portrait-layer is-active" src="assets/fotos/01-eduardo-pimenta-retrato.jpg" alt="" aria-hidden="true" decoding="async" />
+      <img class="portrait-layer" alt="" aria-hidden="true" decoding="async" />
+    </figure>
+    <p class="photo-caption" data-en="{{ site.data.profile.photo_caption_en | escape }}" data-pt="{{ site.data.profile.photo_caption_pt | escape }}">{{ site.data.profile.photo_caption_en }}</p>
+  </aside>
+  <div class="profile-copy" id="about">
+    <h1 id="page-title">{{ site.data.profile.name }}</h1>
+    <p class="role" data-en="{{ site.data.profile.role_en | escape }}" data-pt="{{ site.data.profile.role_pt | escape }}">{{ site.data.profile.role_en }}</p>
+    {% for paragraph in site.data.profile.bio %}
+      <p data-en="{{ paragraph.en | escape }}" data-pt="{{ paragraph.pt | escape }}">{{ paragraph.en }}</p>
+    {% endfor %}
+    {% if site.data.profile.quote.text != "" %}
+      <blockquote class="personal-quote">
+        <p>“{{ site.data.profile.quote.text }}”</p>
+        <cite>— {{ site.data.profile.quote.author }}{% if site.data.profile.quote.source != "" %}, <em>{{ site.data.profile.quote.source }}</em>{% endif %}</cite>
+      </blockquote>
+    {% endif %}
+    <ul class="profile-links" aria-label="Academic profiles">
+      {% for link in site.data.profile.links %}<li><a href="{{ link.url }}"{% unless link.url contains 'mailto:' or link.url contains 'cv/' %} target="_blank" rel="noreferrer"{% endunless %}>{{ link.label }}</a></li>{% endfor %}
+    </ul>
+  </div>
+</section>

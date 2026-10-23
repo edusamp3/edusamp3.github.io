@@ -1,0 +1,12 @@
+# HOW TO USE
+# Edit the section description, repository link and video poster here.
+# Simulation videos themselves go in assets/simulacoes/ as MP4 or WEBM files.
+# Videos are discovered automatically after commit and push.
+# Keep both English (_en) and Portuguese (_pt) labels up to date.
+
+description_en: "A rotating selection of numerical experiments related to my research. The order changes whenever the page is opened."
+description_pt: "Uma seleção rotativa de experimentos numéricos relacionados à minha pesquisa. A ordem muda sempre que a página é aberta."
+repository_label_en: "Simulation code on GitHub"
+repository_label_pt: "Códigos das simulações no GitHub"
+repository_url: "https://github.com/edusamp3/Simulations"
+poster: "assets/snob-3d-poster.jpg"

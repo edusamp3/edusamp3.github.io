@@ -1,39 +1,9 @@
-<section class="content-section"
-         id="research-affiliations"
-         aria-labelledby="research-affiliations-title">
-
-  <h2 id="research-affiliations-title"
-      data-en="Research affiliations"
-      data-pt="Afiliações de pesquisa">
-    Research affiliations
-  </h2>
-
-  <div class="section-body">
-    <ul class="plain-list">
-      <li>
-        <a href="http://dgp.cnpq.br/dgp/espelholinha/790496658105085770869"
-           target="_blank"
-           rel="noopener noreferrer"><strong>PROFE</strong></a>
-
-        <span
-          data-en=" — Research Group in Probability and Statistical Physics. Member of the Interacting Particle Systems research line."
-          data-pt=" — Grupo de Pesquisa em Probabilidade e Física Estatística. Integrante da linha de pesquisa Sistemas de Partículas Interagentes.">
-          — Research Group in Probability and Statistical Physics. Member of the Interacting Particle Systems research line.
-        </span>
-      </li>
-
-      <li>
-        <a href="https://www.uni-augsburg.de/en/fakultaet/mntf/math/prof/sto/"
-           target="_blank"
-           rel="noopener noreferrer"><strong>Probability Theory and Applications</strong></a>,
-        University of Augsburg.
-
-        <span
-          data-en=" Visiting scientist, 2025–2026."
-          data-pt=" Pesquisador visitante, 2025–2026.">
-          Visiting scientist, 2025–2026.
-        </span>
-      </li>
-    </ul>
-  </div>
+<!-- TEMPLATE: Edit groups and affiliations in _data/affiliations.yml. -->
+<section class="content-section" id="research-affiliations" aria-labelledby="research-affiliations-title">
+  <h2 id="research-affiliations-title" data-en="Research affiliations" data-pt="Afiliações de pesquisa">Research affiliations</h2>
+  <div class="section-body"><ul class="plain-list">
+    {% for group in site.data.affiliations %}
+      <li><a href="{{ group.url }}" target="_blank" rel="noopener noreferrer"><strong>{{ group.name }}</strong></a><span data-en=" — {{ group.description_en | escape }}" data-pt=" — {{ group.description_pt | escape }}"> — {{ group.description_en }}</span></li>
+    {% endfor %}
+  </ul></div>
 </section>

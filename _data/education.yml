@@ -1,0 +1,35 @@
+# HOW TO USE
+# Each block below is one degree or academic position.
+# Copy a complete block to add another item. Newest items should come first.
+# Keep both English (_en) and Portuguese (_pt) versions up to date.
+# Keep the indentation exactly as shown.
+
+- period: "2026–present"
+  title_en: "Postdoctoral researcher"
+  title_pt: "Pesquisador de pós-doutorado"
+  institution_en: "Federal University of Minas Gerais (UFMG)"
+  institution_pt: "Universidade Federal de Minas Gerais (UFMG)"
+
+- period: "2025–2026"
+  title_en: "Postdoctoral research"
+  title_pt: "Pesquisa de pós-doutorado"
+  institution_en: "University of Augsburg"
+  institution_pt: "Universidade de Augsburg"
+
+- period: "2021–2025"
+  title_en: "PhD in Mathematics"
+  title_pt: "Doutorado em Matemática"
+  institution_en: "Federal University of Bahia (UFBA)"
+  institution_pt: "Universidade Federal da Bahia (UFBA)"
+
+- period: "2019–2021"
+  title_en: "MSc in Mathematics"
+  title_pt: "Mestrado em Matemática"
+  institution_en: "Federal University of Bahia (UFBA)"
+  institution_pt: "Universidade Federal da Bahia (UFBA)"
+
+- period: "2010–2017"
+  title_en: "BSc in Mathematics"
+  title_pt: "Bacharelado em Matemática"
+  institution_en: "Federal University of Minas Gerais (UFMG)"
+  institution_pt: "Universidade Federal de Minas Gerais (UFMG)"
