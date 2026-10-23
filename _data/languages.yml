@@ -12,6 +12,4 @@ available:
   - code: "pt"
     label: "PT"
     html_lang: "pt-BR"
-  - code: "es"
-    label: "ES"
-    html_lang: "es"
+
