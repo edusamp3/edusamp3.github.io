@@ -1,0 +1,20 @@
+<!-- TEMPLATE: Edit this content in _data/miscellaneous.yml, not in this file. -->
+{% assign misc = site.data.miscellaneous %}
+{% assign default_language = site.data.languages.default | default: "en" %}
+<section class="content-section miscellaneous-section" id="about-me" aria-labelledby="about-me-title">
+  <h1 id="about-me-title" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ misc.about_title[language.code] | default: misc.about_title[default_language] | escape }}"{% endfor %}>{{ misc.about_title[default_language] }}</h1>
+  <div class="section-body">
+    <p data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ misc.about[language.code] | default: misc.about[default_language] | escape }}"{% endfor %}>{{ misc.about[default_language] }}</p>
+    {% if misc.items and misc.items.size > 0 %}
+      <div class="miscellaneous-list">
+        {% for item in misc.items %}
+          <article class="miscellaneous-entry">
+            <h2 data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ item.title[language.code] | default: item.title[default_language] | escape }}"{% endfor %}>{{ item.title[default_language] }}</h2>
+            <p data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ item.description[language.code] | default: item.description[default_language] | escape }}"{% endfor %}>{{ item.description[default_language] }}</p>
+            {% if item.url and item.url != "" %}<p><a href="{{ item.url }}" target="_blank" rel="noreferrer" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ item.link_label[language.code] | default: item.link_label[default_language] | escape }}"{% endfor %}>{{ item.link_label[default_language] }}</a></p>{% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

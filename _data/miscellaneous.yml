@@ -1,0 +1,38 @@
+# HOW TO USE
+# This file controls the personal content on the Miscellaneous page.
+# Edit the About me text freely in every language.
+# Add optional items by copying the commented example.
+# Simulation text remains in simulations.yml, and simulation videos remain
+# automatic: add MP4 or WEBM files to assets/simulacoes/.
+
+page_title:
+  en: "Miscellaneous"
+  pt: "Diversos"
+  es: "Miscelánea"
+
+about_title:
+  en: "About me"
+  pt: "Sobre mim"
+  es: "Sobre mí"
+
+about:
+  en: "This is a space for interests, projects and other things beyond my formal academic work."
+  pt: "Este é um espaço para interesses, projetos e outras coisas além do meu trabalho acadêmico formal."
+  es: "Este es un espacio para intereses, proyectos y otras cosas más allá de mi trabajo académico formal."
+
+items: []
+
+# items:
+#   - title:
+#       en: "Example title"
+#       pt: "Título de exemplo"
+#       es: "Título de ejemplo"
+#     description:
+#       en: "Write something interesting here."
+#       pt: "Escreva algo interessante aqui."
+#       es: "Escriba algo interesante aquí."
+#     url: ""
+#     link_label:
+#       en: "Learn more"
+#       pt: "Saiba mais"
+#       es: "Más información"

@@ -659,3 +659,39 @@ h2 {
 
 /* Data-driven education */
 .education-period { color: var(--muted); white-space: nowrap; }
+
+
+/* Separate Events, Teaching and Miscellaneous pages */
+.page-main {
+  width: 100%;
+}
+
+.teaching-list,
+.miscellaneous-list {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teaching-entry,
+.miscellaneous-entry {
+  padding: 1rem 0;
+  border-top: 1px solid var(--line, rgba(0, 0, 0, 0.14));
+}
+
+.teaching-entry h2,
+.miscellaneous-entry h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.teaching-meta,
+.empty-state {
+  color: var(--muted);
+}
+
+.teaching-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

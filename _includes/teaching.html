@@ -1,0 +1,23 @@
+<!-- TEMPLATE: Edit teaching content in _data/teaching.yml, not in this file. -->
+{% assign teaching = site.data.teaching %}
+{% assign default_language = site.data.languages.default | default: "en" %}
+<section class="content-section teaching-section" id="teaching" aria-labelledby="teaching-title">
+  <h1 id="teaching-title" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ teaching.title[language.code] | default: teaching.title[default_language] | escape }}"{% endfor %}>{{ teaching.title[default_language] }}</h1>
+  <div class="section-body">
+    <p data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ teaching.intro[language.code] | default: teaching.intro[default_language] | escape }}"{% endfor %}>{{ teaching.intro[default_language] }}</p>
+    {% if teaching.courses and teaching.courses.size > 0 %}
+      <ol class="teaching-list">
+        {% for course in teaching.courses %}
+          <li class="teaching-entry">
+            <h2 data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ course.title[language.code] | default: course.title[default_language] | escape }}"{% endfor %}>{{ course.title[default_language] }}</h2>
+            <p class="teaching-meta"><span>{{ course.institution }}</span>{% if course.period %}<span aria-hidden="true"> · </span><span>{{ course.period }}</span>{% endif %}{% if course.level %}<span aria-hidden="true"> · </span><span data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ course.level[language.code] | default: course.level[default_language] | escape }}"{% endfor %}>{{ course.level[default_language] }}</span>{% endif %}</p>
+            {% if course.description %}<p data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ course.description[language.code] | default: course.description[default_language] | escape }}"{% endfor %}>{{ course.description[default_language] }}</p>{% endif %}
+            {% if course.syllabus_url != "" or course.notes_url != "" or course.exercises_url != "" %}<p class="teaching-links">{% if course.syllabus_url != "" %}<a href="{{ course.syllabus_url }}" target="_blank" rel="noreferrer">Syllabus</a>{% endif %}{% if course.notes_url != "" %}<a href="{{ course.notes_url }}" target="_blank" rel="noreferrer">Notes</a>{% endif %}{% if course.exercises_url != "" %}<a href="{{ course.exercises_url }}" target="_blank" rel="noreferrer">Exercises</a>{% endif %}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p class="empty-state" data-i18n{% for language in site.data.languages.available %} data-{{ language.code }}="{{ teaching.empty_message[language.code] | default: teaching.empty_message[default_language] | escape }}"{% endfor %}>{{ teaching.empty_message[default_language] }}</p>
+    {% endif %}
+  </div>
+</section>

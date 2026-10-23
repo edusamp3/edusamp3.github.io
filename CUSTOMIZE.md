@@ -44,3 +44,15 @@ Files in `_includes` control layout. Each template begins with a comment pointin
 ## Layout and typography
 
 Edit `_data/design.yml` to change text alignment, fonts, font sizes, page width, content width, profile photo dimensions, spacing, media proportions, borders, rounded corners, gallery columns and header behavior. Keep CSS units such as `px` and `rem` in size values. The default `text_align` is `left`; use `justify` only if desired.
+
+## Top-level pages
+
+The navigation now contains only separate pages: Home, Events, Teaching and Miscellaneous.
+
+- Edit events in `_data/events.yml` and add their photos to `assets/eventos/`.
+- Edit teaching in `_data/teaching.yml`. Copy the example course when needed.
+- Edit the personal About me and optional items in `_data/miscellaneous.yml`.
+- Edit simulation text in `_data/simulations.yml`.
+- Add MP4 or WEBM simulations to `assets/simulacoes/`; detection remains automatic.
+- The CV link and all Home content remain where they were.
+

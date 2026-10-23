@@ -1,0 +1,44 @@
+# HOW TO USE
+# This file controls the Teaching page.
+# Set visible to true when you want the page listed in the navigation.
+# To add a course, copy the commented example below, remove the # marks,
+# and fill in every language. Leave optional URLs empty when unused.
+# The order in this file is the order shown on the website.
+
+visible: true
+
+title:
+  en: "Teaching"
+  pt: "Ensino"
+  es: "Docencia"
+
+intro:
+  en: "Teaching information will be added here."
+  pt: "As informações sobre ensino serão adicionadas aqui."
+  es: "La información sobre docencia se añadirá aquí."
+
+empty_message:
+  en: "No courses have been added yet."
+  pt: "Nenhuma disciplina foi adicionada ainda."
+  es: "Todavía no se han añadido cursos."
+
+courses: []
+
+# courses:
+#   - title:
+#       en: "Probability I"
+#       pt: "Probabilidade I"
+#       es: "Probabilidad I"
+#     institution: "Federal University of Minas Gerais (UFMG)"
+#     period: "2027/1"
+#     level:
+#       en: "Undergraduate"
+#       pt: "Graduação"
+#       es: "Grado"
+#     description:
+#       en: "Optional course description."
+#       pt: "Descrição opcional da disciplina."
+#       es: "Descripción opcional del curso."
+#     syllabus_url: ""
+#     notes_url: ""
+#     exercises_url: ""

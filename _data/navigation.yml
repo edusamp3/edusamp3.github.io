@@ -1,40 +1,28 @@
 # HOW TO USE
-# Each block is one navigation link. Edit href to change its destination.
-# labels must contain one entry for every language in languages.yml.
-# Copy a complete block to add another menu item.
+# This menu contains only links to separate pages.
+# Edit labels here, but keep the href values unless you rename a page.
+# Add one translated label for every language listed in languages.yml.
 
-- href: "index.html#about"
+- href: "index.html"
   labels:
-    en: "About"
-    pt: "Sobre"
-    es: "Sobre mí"
-- href: "index.html#research"
-  labels:
-    en: "Research"
-    pt: "Pesquisa"
-    es: "Investigación"
-- href: "index.html#education"
-  labels:
-    en: "Education"
-    pt: "Formação"
-    es: "Formación"
-- href: "index.html#research-affiliations"
-  labels:
-    en: "Affiliations"
-    pt: "Afiliações"
-    es: "Afiliaciones"
-- href: "index.html#publications"
-  labels:
-    en: "Publications"
-    pt: "Publicações"
-    es: "Publicaciones"
-- href: "events.html#events"
+    en: "Home"
+    pt: "Início"
+    es: "Inicio"
+
+- href: "events.html"
   labels:
     en: "Events"
     pt: "Eventos"
     es: "Eventos"
-- href: "events.html#simulations"
+
+- href: "teaching.html"
   labels:
-    en: "Simulations"
-    pt: "Simulações"
-    es: "Simulaciones"
+    en: "Teaching"
+    pt: "Ensino"
+    es: "Docencia"
+
+- href: "miscellaneous.html"
+  labels:
+    en: "Miscellaneous"
+    pt: "Diversos"
+    es: "Miscelánea"

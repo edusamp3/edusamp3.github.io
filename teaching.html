@@ -1,0 +1,60 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Academic events and simulations by Eduardo Sampaio Pimenta." />
+    <meta name="author" content="Eduardo Sampaio Pimenta" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Teaching · Eduardo Sampaio Pimenta</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="design.css" />
+    <script>
+      window.siteMedia = (() => {
+        const renderedManifest = String.raw`{
+          "photos": [],
+          "videos": [
+            {% assign media_files = site.static_files | sort: "path" %}
+            {% for media_file in media_files %}
+              {% if media_file.path contains '/assets/simulacoes/' %}
+                {% if media_file.extname == '.mp4' or media_file.extname == '.webm' or media_file.extname == '.MP4' or media_file.extname == '.WEBM' %}
+                  "{{ media_file.path | relative_url }}",
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            ""
+          ]
+        }`;
+        try {
+          const manifest = JSON.parse(renderedManifest);
+          return { photos: [], videos: manifest.videos.filter(Boolean) };
+        } catch (error) {
+          return { photos: [], videos: [] };
+        }
+      })();
+    </script>
+    <script src="theme.js"></script>
+    <script>window.siteLanguages = {{ site.data.languages | jsonify }}; window.siteUI = {{ site.data.ui | jsonify }};</script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n data-en="Skip to content" data-pt="Ir para o conteúdo" data-es="Ir al contenido">Skip to content</a>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="site-name" href="index.html">Eduardo Sampaio Pimenta</a>
+        {% include navigation.html %}
+        {% include language-switch.html %}
+      </div>
+    </header>
+    <main id="main-content" class="page-main">
+      {% include teaching.html %}
+    </main>
+    <footer class="site-footer">
+      <div class="page-width"><p>© <span id="current-year"></span> Eduardo Sampaio Pimenta</p></div>
+    </footer>
+  </body>
+</html>
