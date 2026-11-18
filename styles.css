@@ -663,7 +663,14 @@ h2 {
 
 /* Separate Events, Teaching and Miscellaneous pages */
 .page-main {
-  width: 100%;
+  width: min(calc(100% - 3rem), var(--page-width));
+  margin-inline: auto;
+}
+
+@media (max-width: 620px) {
+  .page-main {
+    width: min(calc(100% - 2rem), var(--page-width));
+  }
 }
 
 .teaching-list,
